@@ -4,7 +4,8 @@
 
   <groupId>de.fhg.fokus.tcc</groupId>
   <artifactId>oclMatching</artifactId>
-  <version>0.0.2-SNAPSHOT-master</version>
+
+  <version>0.0.3-SNAPSHOT-master</version>
   <packaging>jar</packaging>
 
   <name>oclMatching</name>
