@@ -1,4 +1,4 @@
-package de.tub.fokus;
+package de.tub.fokus.sandbox;
 
 import javax.constraints.Objective;
 import javax.constraints.OptimizationStrategy;

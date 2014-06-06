@@ -1,4 +1,4 @@
-package de.tub.fokus;
+package de.tub.fokus.sandbox;
 
 	import javax.constraints.Problem;
 	import javax.constraints.ProblemFactory;
@@ -54,7 +54,16 @@ package de.tub.fokus;
 			p.postElement(vars, indexVar, "<", x);
 		}
 		
-		
+		public void defineMatching(){
+			 int[] q1values={3,2,3,3,2,3,3};
+		        int[] q2values={120,100,130,120,100,130,130};
+		        int[] q3values={98,95,97,98,95,97,97};
+		        int[][] qvalues={q1values,q2values,q3values};
+		        //DEFINE SERVICE QUERY AS CONSTRAINTS
+
+		        Var indexVar= p.variable("angie",0,6);
+		        p.postElement(q1values, indexVar, ">", 1);	
+		}
 			
 		public void solve() {	// PROBLEM RESOLUTION
 			p.log("=== Find all solutions:");
@@ -71,7 +80,7 @@ package de.tub.fokus;
 			PostElementVariations t = new PostElementVariations();
 			//t.define();
 			//t.defineVarInt();
-			t.defineVarVar();
+			t.defineMatching();
 			t.solve();
 		}
 	
