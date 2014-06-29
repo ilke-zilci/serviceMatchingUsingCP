@@ -1,0 +1,915 @@
+<?xml version="1.0"?>
+<ns:schema xmlns="http://www.open-service-compendium.org" xmlns:ns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.open-service-compendium.org" elementFormDefault="qualified">
+  <ns:element name="service">
+    <ns:annotation>
+      <ns:documentation>The root element of the service. Contains an arbitrary number of facts.</ns:documentation>
+    </ns:annotation>
+    <ns:complexType>
+      <ns:choice maxOccurs="unbounded">
+        <ns:element name="name" type="NameFact">
+          <ns:annotation>
+            <ns:documentation>The service has a name.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="cloudServiceModel" type="CloudServiceModelFact">
+          <ns:annotation>
+            <ns:documentation>The cloud service model</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="serviceCategory" type="ServiceCategoryFact">
+          <ns:annotation>
+            <ns:documentation>The service belongs to a category</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="serviceTag" type="ServiceTagFact">
+          <ns:annotation>
+            <ns:documentation>The service is tagged</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="addOnRepository" type="AddOnRepositoryFact">
+          <ns:annotation>
+            <ns:documentation>The service has an add-on repository.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="chargeUnit" type="ChargeUnitFact">
+          <ns:annotation>
+            <ns:documentation>The unit of service charging, e.g. "per user".</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="dataLocationTransparency" type="DataLocationTransparencyFact">
+          <ns:annotation>
+            <ns:documentation>The provider makes the location of service data transparent</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="dataLocation" type="DataLocationFact">
+          <ns:annotation>
+            <ns:documentation>The service offers to locate service data at runtime</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="dataDeletionPolicy" type="DataDeletionPolicyFact">
+          <ns:annotation>
+            <ns:documentation>The service allows for complete deletion of user data after termination of contract</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="dataEncryption" type="DataEncryptionFact">
+          <ns:annotation>
+            <ns:documentation>The service applies encrpytion on user data</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="auditOption" type="AuditOptionFact">
+          <ns:annotation>
+            <ns:documentation>The service has an audit option</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="statusPage" type="StatusPageFact">
+          <ns:annotation>
+            <ns:documentation>The service has a status page</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="serviceLevelAgreement" type="ServiceLevelAgreementFact">
+          <ns:annotation>
+            <ns:documentation>The service has a kind of service level agreement</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="publicServiceLevelAgreement" type="PublicServiceLevelAgreementFact">
+          <ns:annotation>
+            <ns:documentation>The service has a publicibly accessible service level agreement</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="bill" type="BillFact">
+          <ns:annotation>
+            <ns:documentation>The service billing terms.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="paymentOption" type="PaymentOptionFact">
+          <ns:annotation>
+            <ns:documentation>The service can be payed by a payment option, e.g. credit card.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="duration" type="DurationFact">
+          <ns:annotation>
+            <ns:documentation>Generic duration of something.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="setUpConsumptionDuration" type="SetUpConsumptionDurationFact">
+          <ns:annotation>
+            <ns:documentation>The duration for setting up the service.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="provisionEndUserDuration" type="ProvisionEndUserDurationFact">
+          <ns:annotation>
+            <ns:documentation>The duration for provisioning an end user.</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="feature" type="FeatureFact">
+          <ns:annotation>
+            <ns:documentation>A service feature</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="documentation" type="DocumentationFact">
+          <ns:annotation>
+            <ns:documentation>Some service documentation</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="interface" type="InterfaceFact">
+          <ns:annotation>
+            <ns:documentation>An interface to service functionality</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="restInterface" type="RestInterfaceFact">
+          <ns:annotation>
+            <ns:documentation>The service has a RESTful interface</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="soapInterface" type="SoapInterfaceFact">
+          <ns:annotation>
+            <ns:documentation>The service has a SOAP interface</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="xmlrpcInterface" type="XmlrpcInterfaceFact">
+          <ns:annotation>
+            <ns:documentation>The service has an XMLRPC interface</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="browserInterface" type="BrowserInterfaceFact">
+          <ns:annotation>
+            <ns:documentation>A regular browser-based interface</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="maintenance" type="MaintenanceFact">
+          <ns:annotation>
+            <ns:documentation>The service has maintenance information</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="maintenanceWindow" type="MaintenanceWindowFact">
+          <ns:annotation>
+            <ns:documentation>The service has a maintenance window</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="maintenanceFree" type="MaintenanceFreeFact">
+          <ns:annotation>
+            <ns:documentation>The service is maintenance free</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="continuousServiceImprovement" type="ContinuousServiceImprovementFact">
+          <ns:annotation>
+            <ns:documentation>The service has continuous service improvement means</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="futureRoadmap" type="FutureRoadmapFact">
+          <ns:annotation>
+            <ns:documentation>The service has a future roadmap</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="pastReleaseNotes" type="PastReleaseNotesFact">
+          <ns:annotation>
+            <ns:documentation>The service has past release notes</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="feedbackPage" type="FeedbackPageFact">
+          <ns:annotation>
+            <ns:documentation>The service has a feedback page</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="dataCapability" type="DataCapabilityFact">
+          <ns:annotation>
+            <ns:documentation>The service can carry out operations on a specific data format</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="communicationProtection" type="CommunicationProtectionFact">
+          <ns:annotation>
+            <ns:documentation>The communication with the service is protected</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="offlineCapability" type="OfflineCapabilityFact">
+          <ns:annotation>
+            <ns:documentation>Service functionality can be used offline</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+        <ns:element name="establishingYear" type="EstablishingYearFact">
+          <ns:annotation>
+            <ns:documentation>The establishing year of the service is known</ns:documentation>
+          </ns:annotation>
+        </ns:element>
+      </ns:choice>
+    </ns:complexType>
+  </ns:element>
+  <ns:complexType name="SDLTypeBase">
+    <ns:annotation>
+      <ns:documentation>The base type of all SDL types and facts. Contains annotations and documentation.</ns:documentation>
+    </ns:annotation>
+    <ns:choice>
+      <ns:element name="documentation" minOccurs="0" maxOccurs="unbounded" type="ns:string">
+        <ns:annotation>
+          <ns:documentation>The documentation of this type or fact instance.</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="annotation" minOccurs="0" maxOccurs="unbounded" type="ns:string">
+        <ns:annotation>
+          <ns:documentation>An arbitrary annotation to be displayed for the description consumer.</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:choice>
+    <ns:attribute name="identifier">
+      <ns:annotation>
+        <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+      </ns:annotation>
+    </ns:attribute>
+  </ns:complexType>
+  <ns:complexType name="NameFact">
+    <ns:annotation>
+      <ns:documentation>The service has a name.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="name" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The service name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CloudServiceModelFact">
+    <ns:annotation>
+      <ns:documentation>The cloud service model</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="cloud_service_model" type="CloudServiceModel" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The cloud service model</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ServiceCategoryFact">
+    <ns:annotation>
+      <ns:documentation>The service belongs to a category</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="service_category" type="ServiceCategory" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The category of the service</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ServiceTagFact">
+    <ns:annotation>
+      <ns:documentation>The service is tagged</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="service_tag" type="ServiceTag" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The service tag</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="AddOnRepositoryFact">
+    <ns:annotation>
+      <ns:documentation>The service has an add-on repository.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The URL of the add-on repository</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="number_of_add_ons" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The number of available add-ons</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ChargeUnitFact">
+    <ns:annotation>
+      <ns:documentation>The unit of service charging, e.g. "per user".</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="charge_unit" type="ChargeUnit" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The unit of charge</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataLocationTransparencyFact">
+    <ns:annotation>
+      <ns:documentation>The provider makes the location of service data transparent</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataLocationFact">
+    <ns:annotation>
+      <ns:documentation>The service offers to locate service data at runtime</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="location" type="Location" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The location of data</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataDeletionPolicyFact">
+    <ns:annotation>
+      <ns:documentation>The service allows for complete deletion of user data after termination of contract</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataEncryptionFact">
+    <ns:annotation>
+      <ns:documentation>The service applies encrpytion on user data</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="key_control" type="KeyControl" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>Who excercises control over the encryption keys</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="AuditOptionFact">
+    <ns:annotation>
+      <ns:documentation>The service has an audit option</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="audit_option" type="AuditOption" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The audit option</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="StatusPageFact">
+    <ns:annotation>
+      <ns:documentation>The service has a status page</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The URL of the service status page</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ServiceLevelAgreementFact">
+    <ns:annotation>
+      <ns:documentation>The service has a kind of service level agreement</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="PublicServiceLevelAgreementFact">
+    <ns:annotation>
+      <ns:documentation>The service has a publicibly accessible service level agreement</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="ServiceLevelAgreementFact">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The URL of the service level agreement</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="BillFact">
+    <ns:annotation>
+      <ns:documentation>The service billing terms.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="billing_term" type="BillingTerm" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The billing terms</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="payment_term" type="PaymentTerm" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The payment terms</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="PaymentOptionFact">
+    <ns:annotation>
+      <ns:documentation>The service can be payed by a payment option, e.g. credit card.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="payment_option" type="PaymentOption" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The payment option</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DurationFact">
+    <ns:annotation>
+      <ns:documentation>Generic duration of something.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="duration" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The duration</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="SetUpConsumptionDurationFact">
+    <ns:annotation>
+      <ns:documentation>The duration for setting up the service.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="DurationFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ProvisionEndUserDurationFact">
+    <ns:annotation>
+      <ns:documentation>The duration for provisioning an end user.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="DurationFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="FeatureFact">
+    <ns:annotation>
+      <ns:documentation>A service feature</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="feature" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The feature name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="description" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The feature description</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DocumentationFact">
+    <ns:annotation>
+      <ns:documentation>Some service documentation</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The documentation URL</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="InterfaceFact">
+    <ns:annotation>
+      <ns:documentation>An interface to service functionality</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="RestInterfaceFact">
+    <ns:annotation>
+      <ns:documentation>The service has a RESTful interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="InterfaceFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="SoapInterfaceFact">
+    <ns:annotation>
+      <ns:documentation>The service has a SOAP interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="InterfaceFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="XmlrpcInterfaceFact">
+    <ns:annotation>
+      <ns:documentation>The service has an XMLRPC interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="InterfaceFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="BrowserInterfaceFact">
+    <ns:annotation>
+      <ns:documentation>A regular browser-based interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="InterfaceFact">
+        <ns:sequence>
+          <ns:element name="compatible_browser" type="CompatibleBrowser" minOccurs="0" maxOccurs="unbounded">
+            <ns:annotation>
+              <ns:documentation>The compatible browsers</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="required_plugin" type="RequiredPlugin" minOccurs="0" maxOccurs="unbounded">
+            <ns:annotation>
+              <ns:documentation>The required browser plugins</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="MaintenanceFact">
+    <ns:annotation>
+      <ns:documentation>The service has maintenance information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="MaintenanceWindowFact">
+    <ns:annotation>
+      <ns:documentation>The service has a maintenance window</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="MaintenanceFact">
+        <ns:sequence>
+          <ns:element name="timespan" type="Timespan" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The timespan of the maintenance window</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="MaintenanceFreeFact">
+    <ns:annotation>
+      <ns:documentation>The service is maintenance free</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="MaintenanceFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ContinuousServiceImprovementFact">
+    <ns:annotation>
+      <ns:documentation>The service has continuous service improvement means</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>A link to the continuous service improvement</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="FutureRoadmapFact">
+    <ns:annotation>
+      <ns:documentation>The service has a future roadmap</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="ContinuousServiceImprovementFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="PastReleaseNotesFact">
+    <ns:annotation>
+      <ns:documentation>The service has past release notes</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="ContinuousServiceImprovementFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="FeedbackPageFact">
+    <ns:annotation>
+      <ns:documentation>The service has a feedback page</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="ContinuousServiceImprovementFact"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataCapabilityFact">
+    <ns:annotation>
+      <ns:documentation>The service can carry out operations on a specific data format</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="operation" type="DataCapabilityOperation" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The operation, which can be carried out on the data format</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="format" type="DataFormat" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The data format</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CommunicationProtectionFact">
+    <ns:annotation>
+      <ns:documentation>The communication with the service is protected</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="communication_protection" type="CommunicationProtection" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The protection means</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="OfflineCapabilityFact">
+    <ns:annotation>
+      <ns:documentation>Service functionality can be used offline</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="EstablishingYearFact">
+    <ns:annotation>
+      <ns:documentation>The establishing year of the service is known</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="year" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The year, the service was established</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Timespan">
+    <ns:annotation>
+      <ns:documentation>An arbitrary timespan</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="start" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The timespan start</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="end" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The timespan end</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Location">
+    <ns:annotation>
+      <ns:documentation>Location information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CloudServiceModel">
+    <ns:annotation>
+      <ns:documentation>A cloud service model</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ServiceCategory">
+    <ns:annotation>
+      <ns:documentation>The category of a service</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ServiceTag">
+    <ns:annotation>
+      <ns:documentation>A Service tag</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ChargeUnit">
+    <ns:annotation>
+      <ns:documentation>The charge unit</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="KeyControl">
+    <ns:annotation>
+      <ns:documentation>One possibility of key control</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="AuditOption">
+    <ns:annotation>
+      <ns:documentation>An option to audit a service</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="BillingTerm">
+    <ns:annotation>
+      <ns:documentation>The billing term, e.g. "per month".</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="PaymentTerm">
+    <ns:annotation>
+      <ns:documentation>The payment terms, i.e., in advance and after use.</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="PaymentOption">
+    <ns:annotation>
+      <ns:documentation>The payment option</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Browser">
+    <ns:annotation>
+      <ns:documentation>A browser</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The browser homepage URL</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="BrowserPlugin">
+    <ns:annotation>
+      <ns:documentation>A browser plugin</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="url" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The browser plugin URL</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CompatibleBrowser">
+    <ns:annotation>
+      <ns:documentation>A compatible browser</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="compatible_browser" type="Browser" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The compatible browser</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="min_version" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The minimum version of the browser</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="RequiredPlugin">
+    <ns:annotation>
+      <ns:documentation>The required plugins</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase">
+        <ns:sequence>
+          <ns:element name="required_plugin" type="BrowserPlugin" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The plugin</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="min_version" type="ns:string" minOccurs="0">
+            <ns:annotation>
+              <ns:documentation>The minimum version required of the browser plugin</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataCapabilityOperation">
+    <ns:annotation>
+      <ns:documentation>The data capability operation</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataFormat">
+    <ns:annotation>
+      <ns:documentation>The data format</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CommunicationProtection">
+    <ns:annotation>
+      <ns:documentation>A communication protection means</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="SDLTypeBase"/>
+    </ns:complexContent>
+  </ns:complexType>
+</ns:schema>

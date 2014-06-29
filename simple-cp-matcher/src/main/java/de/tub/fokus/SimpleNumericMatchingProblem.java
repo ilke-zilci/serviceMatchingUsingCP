@@ -8,6 +8,13 @@ import javax.constraints.Var;
 
 import de.tub.fokus.sandbox.PostElementVariations;
 
+/**
+ * implementation for the simple numeric matching problem
+ * service descriptions are arrays of integer values for qos parameters
+ * assumption is that always the higher values are better 
+ * @author ilke
+ *
+ */
 public class SimpleNumericMatchingProblem extends AbstractProblem {
 	Problem matching;
 	Solver solver;
@@ -18,9 +25,7 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 		matching = ProblemFactory.newProblem("ServiceMatching");
 	}
 
-	// DEFINE SERVICE DESCRIPTIONS AS ARRAY OF FIXED VALUES
-	// one thing is defining variables with domains and another is what
-	// value the service description has for that variable
+	// DEFINE SERVICE DESCRIPTIONS AS ARRAYS OF FIXED VALUES
 	// EACH SERVICE HAS ITS VALUES FOR AVGEXTIME, ATHR and AVGAVAIL
 	int[] service1 = { 3, 120, 98 };
 	int[] service2 = { 2, 100, 95 };
@@ -35,32 +40,25 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 	int[][] _services = { service1, service2, service3, service4, service5,
 			service6, service7 }, services = _services;
 
-	// stupid problems if solver gets created before posting constraints
-	// sth like invalid attempt to get indomainvar of Var varname
+	// if solver gets created before posting constraints
+	// error : invalid attempt to get indomainvar of Var varname
 	@Override
 	public void buildModel() {
-		// serviceX.QOSTERM1 for each service, add to q1values
+		
+		// TODO serviceX.QOSTERM1 for each service, add to q1values
 		int[] q1values = { 3, 2, 3, 3, 2, 3, 3 };
 		int[] q2values = { 120, 100, 130, 120, 100, 130, 130 };
 		int[] q3values = { 98, 95, 97, 98, 95, 97, 97 };
 		int[][] qvalues = { q1values, q2values, q3values };
-		// DEFINE SERVICE QUERY AS CONSTRAINTS
-		Var indexVar = matching.variable("timaia", 0, 6);
-		//Var indexVar2 = matching.variable("timaia2", 0, 6);
-		System.out.println(matching.toString());
-//		matching.postElement(q1values, indexVar, ">", qosdemand[0]);
-//		matching.postElement(q2values, indexVar, ">", qosdemand[1]);
+		
+		// DEFINE SERVICE QUERY AS CONSTRAINTS WITH POST METHOD
+		Var indexVar = matching.variable("serviceIndex", 0, 6);
 		 for (int j=0; j<qosdemand.length; j++) {
 		 matching.postElement(qvalues[j], indexVar, ">", qosdemand[j]);
 		 }
-
-		// see bins.java
-		// quite similar problem, where some variables are constrained to have
-		// specific values
 	}
 	@Override
 	public Solver createSolver() {
-		// TODO Auto-generated method stub
 		solver = matching.getSolver();
 		return solver;
 	}
