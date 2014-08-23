@@ -93,7 +93,7 @@ public class SetMatchingProblem extends AbstractProblem {
 	}
 
 	@Override
-	public void solve() {
+	public void solveAll() {
 		matching.log("=== Find all solutions:");
 
 		solutions = solver.findAllSolutions();

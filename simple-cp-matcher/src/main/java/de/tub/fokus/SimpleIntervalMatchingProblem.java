@@ -6,7 +6,7 @@ package de.tub.fokus;
  * service descriptions are arrays of integer variables (such as 3>x>7) for qos parameters
  * qos demands as fixed values or intervals
  * assumption is that always the higher values are better 
- * @author ilke
+ * @author izi
  *
  */
 public class SimpleIntervalMatchingProblem {

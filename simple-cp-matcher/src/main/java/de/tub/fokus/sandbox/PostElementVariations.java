@@ -11,9 +11,12 @@ package de.tub.fokus.sandbox;
 		Problem p = ProblemFactory.newProblem("TestXYZ");
 
 		public void define() { // PROBLEM DEFINITION
-			Var v1 = p.variable("M",0,6);
+			//the index variable
+			Var v1 = p.variable("M",0,5);
+			//the array we are investigating
 			int[] num={1,2,3,4,5,6};
 			p.log(p.getVars());
+			//int i=3 the other side of the condition 
 			p.postElement(num, v1, ">=",3);
 			//when M=2 or M=3 , the condition is satisfied
 			//num[2]=3 bu >=3
@@ -22,24 +25,30 @@ package de.tub.fokus.sandbox;
 
 		}	
 		
-		//try p.postElement(int[] array, Var indexVar, oper, Var var)	
+		//here usage of p.postElement(int[] array, Var indexVar, oper, Var var)
+		//the relation for my case will be then how many solutions are there for M=3 num[3]=4 condition num[3]=X[...], 
+		//again i have to assess the logs,and tell service which has index i had 3 entries in the solution set.
+		
 		public void defineIntVar(){
-			Var v1 = p.variable("M",0,6);
+			//with the index var i can state which part of the array i want to investigate now, might help for heap problems to run the solver in smaller steps
+			Var v1 = p.variable("M",0,5);
 			int[] num={1,2,3,4,5,6};
 			p.log(p.getVars());
 		    //1. option domain defined with min max
+			//2. option would be domain defined with specific values in an array
 			Var x = p.variable("X",1,10);
 			p.postElement(num, v1, ">", x);
-			//2. option would be domain defined with specific values in an array
+			
 		}
 		
 		public void defineVarInt(){
-			Var indexVar = p.variable("M",0,2);
+			Var indexVar = p.variable("M",0,1);
 			Var a = p.variable("A",1,10);
 			Var b = p.variable("B",1,10);
-			Var c = p.variable("C",1,10);
-			Var d = p.variable("D",1,10);
-			Var[] vars = { a,b,c,d };
+			//Var c = p.variable("C",1,10);
+			//Var d = p.variable("D",1,10);
+			//Var[] vars = { a,b,c,d };
+			Var[] vars = {a,b};
 			p.postElement(vars, indexVar, "<", 3);
 		}
 		
@@ -47,10 +56,11 @@ package de.tub.fokus.sandbox;
 			Var indexVar = p.variable("M",0,0);
 			Var a = p.variable("A",1,10);
 			Var b = p.variable("B",1,10);
-			Var c = p.variable("C",1,10);
-			Var d = p.variable("D",1,10);
-			Var[] vars = { a,b,c,d };
-			Var x = p.variable("X",1,10);
+//			Var c = p.variable("C",1,10);
+//			Var d = p.variable("D",1,10);
+//			Var[] vars = { a,b,c,d };
+			Var[] vars = { a,b };
+			Var x = p.variable("X",1,3);
 			p.postElement(vars, indexVar, "<", x);
 		}
 		
@@ -79,8 +89,10 @@ package de.tub.fokus.sandbox;
 		public static void main(String[] args) {
 			PostElementVariations t = new PostElementVariations();
 			//t.define();
-			//t.defineVarInt();
-			t.defineMatching();
+			//t.defineIntVar();
+			t.defineVarInt();
+			 //t.defineVarVar();
+			//t.defineMatching();
 			t.solve();
 		}
 	

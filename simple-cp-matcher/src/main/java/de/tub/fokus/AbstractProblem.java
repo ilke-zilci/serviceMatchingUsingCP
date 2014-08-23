@@ -20,7 +20,7 @@ public abstract class AbstractProblem {
 	// strategy.setVarSelectorType(VarSelectorType.MIN_DOMAIN_MIN_VALUE);
 	// strategy.setValueSelector(new ValueSelectorMax());
 	/* find only one solution or all solutions or an optimal one */
-	public abstract void solve();
+	public abstract void solveAll();
 
 	/* format the output */
 	public abstract void prettyOut();
@@ -33,8 +33,7 @@ public abstract class AbstractProblem {
 		this.buildModel();
 		this.createSolver();
 		this.configureSearch();
-		this.solve();
-
-	}
+		this.solveAll();
+		}
 
 }

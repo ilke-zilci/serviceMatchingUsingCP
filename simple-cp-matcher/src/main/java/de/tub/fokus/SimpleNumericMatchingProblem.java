@@ -12,7 +12,7 @@ import de.tub.fokus.sandbox.PostElementVariations;
  * implementation for the simple numeric matching problem
  * service descriptions are arrays of integer values for qos parameters
  * assumption is that always the higher values are better 
- * @author ilke
+ * @author izi
  *
  */
 public class SimpleNumericMatchingProblem extends AbstractProblem {
@@ -64,7 +64,7 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 	}
 
 	@Override
-	public void solve() {
+	public void solveAll() {
 
 		matching.log("=== Find all solutions:");
 		
@@ -89,8 +89,7 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 	}
 	public static void main(String[] args) {
 		SimpleNumericMatchingProblem matchp = new SimpleNumericMatchingProblem();
-		matchp.execute();
-		
+		matchp.execute();		
 	}
 
 }
