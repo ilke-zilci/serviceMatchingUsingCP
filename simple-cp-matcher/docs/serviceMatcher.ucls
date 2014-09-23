@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <interface id="1" language="java" name="de.tub.fokus.sm.cp.model.constraints.QoSConstraint" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/QoSConstraint.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="168" x="1684" y="581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="de.tub.fokus.sm.cp.model.constraints.DiscreteNumericConstraint" 
+    project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/DiscreteNumericConstraint.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="205" width="196" x="979" y="581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="de.tub.fokus.sm.cp.model.constraints.AggregatableConstraint" 
+    project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/AggregatableConstraint.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="178" x="1237" y="581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="de.tub.fokus.sm.cp.model.constraints.TresorQoSConstraint" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/TresorQoSConstraint.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="168" x="979" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="de.tub.fokus.sm.cp.model.constraints.FeatureListConstraint" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/FeatureListConstraint.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="115" width="168" x="1874" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="de.tub.fokus.sm.cp.model.QoSRequest" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/QoSRequest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="188" width="339" x="1495" y="318"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="de.tub.fokus.sm.cp.model.ServiceRepository" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/ServiceRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="223" width="268" x="1187" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="de.tub.fokus.sm.cp.model.QoSMatchmaker" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/QoSMatchmaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="264" x="1341" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="de.tub.fokus.sm.cp.model.specs.DiscreteNumericSpec" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/specs/DiscreteNumericSpec.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="151" x="318" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="de.tub.fokus.sm.cp.model.specs.FeatureListSpec" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/specs/FeatureListSpec.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="169" width="237" x="41" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="11" language="java" name="de.tub.fokus.sm.cp.model.specs.QoSSpec.MatchingDegree" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/specs/QoSSpec.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="151" width="156" x="758" y="581"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <interface id="12" language="java" name="de.tub.fokus.sm.cp.model.specs.QoSSpec" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/specs/QoSSpec.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="205" width="228" x="509" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="de.tub.fokus.sm.cp.model.specs.TresorQoSSpec" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/specs/TresorQoSSpec.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="241" width="228" x="531" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="14" language="java" name="de.tub.fokus.sm.cp.model.Evaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/Evaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="141" x="798" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <association id="15">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="16" name="repository"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="19" name="allInOneCSPConstraints"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <nesting id="22">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="24">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="25" name="ownCSPConstraints"/>      
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="28">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="29" name="request"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="32" name="evaluators"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="34">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="35">    
+    <bendpoint x="767" y="318"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="36" name="matchingDegree"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="38">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="39">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
