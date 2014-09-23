@@ -1,200 +1,21 @@
 <?xml version="1.0"?>
 <ns:schema xmlns="http://www.open-service-compendium.org" xmlns:ns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.open-service-compendium.org" elementFormDefault="qualified">
-  <ns:element name="service">
+  <ns:element name="services">
     <ns:annotation>
-      <ns:documentation>The root element of the service. Contains an arbitrary number of facts.</ns:documentation>
+      <ns:documentation>A list of services.</ns:documentation>
     </ns:annotation>
     <ns:complexType>
-      <ns:choice maxOccurs="unbounded">
-        <ns:element name="name" type="NameFact">
-          <ns:annotation>
-            <ns:documentation>The service has a name.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="cloudServiceModel" type="CloudServiceModelFact">
-          <ns:annotation>
-            <ns:documentation>The cloud service model</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="serviceCategory" type="ServiceCategoryFact">
-          <ns:annotation>
-            <ns:documentation>The service belongs to a category</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="serviceTag" type="ServiceTagFact">
-          <ns:annotation>
-            <ns:documentation>The service is tagged</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="addOnRepository" type="AddOnRepositoryFact">
-          <ns:annotation>
-            <ns:documentation>The service has an add-on repository.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="chargeUnit" type="ChargeUnitFact">
-          <ns:annotation>
-            <ns:documentation>The unit of service charging, e.g. "per user".</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="dataLocationTransparency" type="DataLocationTransparencyFact">
-          <ns:annotation>
-            <ns:documentation>The provider makes the location of service data transparent</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="dataLocation" type="DataLocationFact">
-          <ns:annotation>
-            <ns:documentation>The service offers to locate service data at runtime</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="dataDeletionPolicy" type="DataDeletionPolicyFact">
-          <ns:annotation>
-            <ns:documentation>The service allows for complete deletion of user data after termination of contract</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="dataEncryption" type="DataEncryptionFact">
-          <ns:annotation>
-            <ns:documentation>The service applies encrpytion on user data</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="auditOption" type="AuditOptionFact">
-          <ns:annotation>
-            <ns:documentation>The service has an audit option</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="statusPage" type="StatusPageFact">
-          <ns:annotation>
-            <ns:documentation>The service has a status page</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="serviceLevelAgreement" type="ServiceLevelAgreementFact">
-          <ns:annotation>
-            <ns:documentation>The service has a kind of service level agreement</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="publicServiceLevelAgreement" type="PublicServiceLevelAgreementFact">
-          <ns:annotation>
-            <ns:documentation>The service has a publicibly accessible service level agreement</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="bill" type="BillFact">
-          <ns:annotation>
-            <ns:documentation>The service billing terms.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="paymentOption" type="PaymentOptionFact">
-          <ns:annotation>
-            <ns:documentation>The service can be payed by a payment option, e.g. credit card.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="duration" type="DurationFact">
-          <ns:annotation>
-            <ns:documentation>Generic duration of something.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="setUpConsumptionDuration" type="SetUpConsumptionDurationFact">
-          <ns:annotation>
-            <ns:documentation>The duration for setting up the service.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="provisionEndUserDuration" type="ProvisionEndUserDurationFact">
-          <ns:annotation>
-            <ns:documentation>The duration for provisioning an end user.</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="feature" type="FeatureFact">
-          <ns:annotation>
-            <ns:documentation>A service feature</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="documentation" type="DocumentationFact">
-          <ns:annotation>
-            <ns:documentation>Some service documentation</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="interface" type="InterfaceFact">
-          <ns:annotation>
-            <ns:documentation>An interface to service functionality</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="restInterface" type="RestInterfaceFact">
-          <ns:annotation>
-            <ns:documentation>The service has a RESTful interface</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="soapInterface" type="SoapInterfaceFact">
-          <ns:annotation>
-            <ns:documentation>The service has a SOAP interface</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="xmlrpcInterface" type="XmlrpcInterfaceFact">
-          <ns:annotation>
-            <ns:documentation>The service has an XMLRPC interface</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="browserInterface" type="BrowserInterfaceFact">
-          <ns:annotation>
-            <ns:documentation>A regular browser-based interface</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="maintenance" type="MaintenanceFact">
-          <ns:annotation>
-            <ns:documentation>The service has maintenance information</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="maintenanceWindow" type="MaintenanceWindowFact">
-          <ns:annotation>
-            <ns:documentation>The service has a maintenance window</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="maintenanceFree" type="MaintenanceFreeFact">
-          <ns:annotation>
-            <ns:documentation>The service is maintenance free</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="continuousServiceImprovement" type="ContinuousServiceImprovementFact">
-          <ns:annotation>
-            <ns:documentation>The service has continuous service improvement means</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="futureRoadmap" type="FutureRoadmapFact">
-          <ns:annotation>
-            <ns:documentation>The service has a future roadmap</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="pastReleaseNotes" type="PastReleaseNotesFact">
-          <ns:annotation>
-            <ns:documentation>The service has past release notes</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="feedbackPage" type="FeedbackPageFact">
-          <ns:annotation>
-            <ns:documentation>The service has a feedback page</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="dataCapability" type="DataCapabilityFact">
-          <ns:annotation>
-            <ns:documentation>The service can carry out operations on a specific data format</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="communicationProtection" type="CommunicationProtectionFact">
-          <ns:annotation>
-            <ns:documentation>The communication with the service is protected</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="offlineCapability" type="OfflineCapabilityFact">
-          <ns:annotation>
-            <ns:documentation>Service functionality can be used offline</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-        <ns:element name="establishingYear" type="EstablishingYearFact">
-          <ns:annotation>
-            <ns:documentation>The establishing year of the service is known</ns:documentation>
-          </ns:annotation>
-        </ns:element>
-      </ns:choice>
+      <ns:sequence>
+        <ns:element name="service" type="Service" minOccurs="0" maxOccurs="unbounded"/>
+      </ns:sequence>
     </ns:complexType>
   </ns:element>
-  <ns:complexType name="SDLTypeBase">
+  <ns:element name="service" type="Service">
+    <ns:annotation>
+      <ns:documentation>The root element of a service.</ns:documentation>
+    </ns:annotation>
+  </ns:element>
+  <ns:complexType name="SDLTypeBase" abstract="true">
     <ns:annotation>
       <ns:documentation>The base type of all SDL types and facts. Contains annotations and documentation.</ns:documentation>
     </ns:annotation>
@@ -204,513 +25,324 @@
           <ns:documentation>The documentation of this type or fact instance.</ns:documentation>
         </ns:annotation>
       </ns:element>
-      <ns:element name="annotation" minOccurs="0" maxOccurs="unbounded" type="ns:string">
-        <ns:annotation>
-          <ns:documentation>An arbitrary annotation to be displayed for the description consumer.</ns:documentation>
-        </ns:annotation>
-      </ns:element>
     </ns:choice>
+    <ns:attribute name="annotation" type="ns:string">
+      <ns:annotation>
+        <ns:documentation>An arbitrary annotation to be displayed for the description consumer.</ns:documentation>
+      </ns:annotation>
+    </ns:attribute>
     <ns:attribute name="identifier">
       <ns:annotation>
         <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
       </ns:annotation>
     </ns:attribute>
+    <ns:attribute name="uri">
+      <ns:annotation>
+        <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+      </ns:annotation>
+    </ns:attribute>
   </ns:complexType>
-  <ns:complexType name="NameFact">
+  <ns:complexType name="AbstractService" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="uri" type="ns:anyURI"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Service">
     <ns:annotation>
-      <ns:documentation>The service has a name.</ns:documentation>
+      <ns:documentation>A service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractService">
         <ns:sequence>
-          <ns:element name="name" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The service name</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="ServiceProperties"/>
         </ns:sequence>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
-  <ns:complexType name="CloudServiceModelFact">
-    <ns:annotation>
-      <ns:documentation>The cloud service model</ns:documentation>
-    </ns:annotation>
+  <ns:group name="ServiceProperties">
+    <ns:sequence>
+      <ns:element name="service_name" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Service name</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="provider" type="Provider" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The service provider</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="cloud_service_model" type="CloudServiceModel" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The cloud service model</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="service_category" type="ServiceCategory" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Categories</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="service_tag" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Tags</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="add_on_repository" type="AddOnRepository" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The service add-on repositories</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="is_charged_by" type="ChargeUnit" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Charging unit</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="data_location" type="Location" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Service data storage location</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="data_deletion_policy" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The data deletion policy</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="status_page" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The status page URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="public_service_level_agreement" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>URL of public SLA</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="data_encryption" type="DataEncryption" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Details about service data encryption</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="audit_option" type="AuditOption" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>The audit options</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="is_billed" type="BillingAndPayment" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Billing and Payment info</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="payment_option" type="PaymentOption" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Payment options</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="set_up_consumption_duration" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The duration for setting up the service.</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="provision_end_user_duration" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The duration for provisioning an end user.</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="feature" type="Feature" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Service features</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="documentation" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Service documentation URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="rest_interface" type="RestInterface" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The REST interface</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="soap_interface" type="SoapInterface" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The SOAP interface</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="xmlrpc_interface" type="XmlrpcInterface" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The XMLRPC interface</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="compatible_browser" type="CompatibleBrowser" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Compatible Browsers</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="required_plugin" type="RequiredPlugin" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Required Browser-Plugins</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="maintenance_free" type="MaintenanceFree" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The service is maintenance free</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="maintenance_window" type="MaintenanceWindow" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The service has a maintenance window</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="future_roadmap" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Future roadmap URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="past_release_notes" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Past release notes URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="feedback_page" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Feedback page URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="exportable_data_format" type="DataFormat" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Exportable data formats</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="importable_data_format" type="DataFormat" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Importable data formats</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="is_protected_by" type="CommunicationProtection" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Service protection means</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="can_be_used_offline" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Offline capability information</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:boolean">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="established_in" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Service established in</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:decimal">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="location_enabled" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The service supports location-based computing</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:boolean">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:complexType name="AbstractTimespan" abstract="true">
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="cloud_service_model" type="CloudServiceModel" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The cloud service model</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ServiceCategoryFact">
-    <ns:annotation>
-      <ns:documentation>The service belongs to a category</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="service_category" type="ServiceCategory" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The category of the service</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ServiceTagFact">
-    <ns:annotation>
-      <ns:documentation>The service is tagged</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="service_tag" type="ServiceTag" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The service tag</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="AddOnRepositoryFact">
-    <ns:annotation>
-      <ns:documentation>The service has an add-on repository.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The URL of the add-on repository</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="number_of_add_ons" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The number of available add-ons</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ChargeUnitFact">
-    <ns:annotation>
-      <ns:documentation>The unit of service charging, e.g. "per user".</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="charge_unit" type="ChargeUnit" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The unit of charge</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DataLocationTransparencyFact">
-    <ns:annotation>
-      <ns:documentation>The provider makes the location of service data transparent</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DataLocationFact">
-    <ns:annotation>
-      <ns:documentation>The service offers to locate service data at runtime</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="location" type="Location" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The location of data</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DataDeletionPolicyFact">
-    <ns:annotation>
-      <ns:documentation>The service allows for complete deletion of user data after termination of contract</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DataEncryptionFact">
-    <ns:annotation>
-      <ns:documentation>The service applies encrpytion on user data</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="key_control" type="KeyControl" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>Who excercises control over the encryption keys</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="AuditOptionFact">
-    <ns:annotation>
-      <ns:documentation>The service has an audit option</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="audit_option" type="AuditOption" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The audit option</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="StatusPageFact">
-    <ns:annotation>
-      <ns:documentation>The service has a status page</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The URL of the service status page</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ServiceLevelAgreementFact">
-    <ns:annotation>
-      <ns:documentation>The service has a kind of service level agreement</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="PublicServiceLevelAgreementFact">
-    <ns:annotation>
-      <ns:documentation>The service has a publicibly accessible service level agreement</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="ServiceLevelAgreementFact">
-        <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The URL of the service level agreement</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="BillFact">
-    <ns:annotation>
-      <ns:documentation>The service billing terms.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="billing_term" type="BillingTerm" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The billing terms</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="payment_term" type="PaymentTerm" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The payment terms</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="PaymentOptionFact">
-    <ns:annotation>
-      <ns:documentation>The service can be payed by a payment option, e.g. credit card.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="payment_option" type="PaymentOption" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The payment option</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DurationFact">
-    <ns:annotation>
-      <ns:documentation>Generic duration of something.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="duration" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The duration</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="SetUpConsumptionDurationFact">
-    <ns:annotation>
-      <ns:documentation>The duration for setting up the service.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="DurationFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ProvisionEndUserDurationFact">
-    <ns:annotation>
-      <ns:documentation>The duration for provisioning an end user.</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="DurationFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="FeatureFact">
-    <ns:annotation>
-      <ns:documentation>A service feature</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="feature" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The feature name</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="description" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The feature description</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DocumentationFact">
-    <ns:annotation>
-      <ns:documentation>Some service documentation</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The documentation URL</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="InterfaceFact">
-    <ns:annotation>
-      <ns:documentation>An interface to service functionality</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="RestInterfaceFact">
-    <ns:annotation>
-      <ns:documentation>The service has a RESTful interface</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="InterfaceFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="SoapInterfaceFact">
-    <ns:annotation>
-      <ns:documentation>The service has a SOAP interface</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="InterfaceFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="XmlrpcInterfaceFact">
-    <ns:annotation>
-      <ns:documentation>The service has an XMLRPC interface</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="InterfaceFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="BrowserInterfaceFact">
-    <ns:annotation>
-      <ns:documentation>A regular browser-based interface</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="InterfaceFact">
-        <ns:sequence>
-          <ns:element name="compatible_browser" type="CompatibleBrowser" minOccurs="0" maxOccurs="unbounded">
-            <ns:annotation>
-              <ns:documentation>The compatible browsers</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="required_plugin" type="RequiredPlugin" minOccurs="0" maxOccurs="unbounded">
-            <ns:annotation>
-              <ns:documentation>The required browser plugins</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="MaintenanceFact">
-    <ns:annotation>
-      <ns:documentation>The service has maintenance information</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="MaintenanceWindowFact">
-    <ns:annotation>
-      <ns:documentation>The service has a maintenance window</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="MaintenanceFact">
-        <ns:sequence>
-          <ns:element name="timespan" type="Timespan" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The timespan of the maintenance window</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="MaintenanceFreeFact">
-    <ns:annotation>
-      <ns:documentation>The service is maintenance free</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="MaintenanceFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="ContinuousServiceImprovementFact">
-    <ns:annotation>
-      <ns:documentation>The service has continuous service improvement means</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>A link to the continuous service improvement</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="FutureRoadmapFact">
-    <ns:annotation>
-      <ns:documentation>The service has a future roadmap</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="ContinuousServiceImprovementFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="PastReleaseNotesFact">
-    <ns:annotation>
-      <ns:documentation>The service has past release notes</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="ContinuousServiceImprovementFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="FeedbackPageFact">
-    <ns:annotation>
-      <ns:documentation>The service has a feedback page</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="ContinuousServiceImprovementFact"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="DataCapabilityFact">
-    <ns:annotation>
-      <ns:documentation>The service can carry out operations on a specific data format</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="operation" type="DataCapabilityOperation" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The operation, which can be carried out on the data format</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="format" type="DataFormat" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The data format</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="CommunicationProtectionFact">
-    <ns:annotation>
-      <ns:documentation>The communication with the service is protected</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="communication_protection" type="CommunicationProtection" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The protection means</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="OfflineCapabilityFact">
-    <ns:annotation>
-      <ns:documentation>Service functionality can be used offline</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
-    </ns:complexContent>
-  </ns:complexType>
-  <ns:complexType name="EstablishingYearFact">
-    <ns:annotation>
-      <ns:documentation>The establishing year of the service is known</ns:documentation>
-    </ns:annotation>
-    <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
-        <ns:sequence>
-          <ns:element name="year" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The year, the service was established</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-        </ns:sequence>
-      </ns:extension>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="TimespanIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="Timespan">
@@ -718,20 +350,259 @@
       <ns:documentation>An arbitrary timespan</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractTimespan">
         <ns:sequence>
-          <ns:element name="start" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The timespan start</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="end" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The timespan end</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="TimespanProperties"/>
         </ns:sequence>
       </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="TimespanProperties">
+    <ns:sequence>
+      <ns:element name="start" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The timespan start</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="end" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The timespan end</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="TimespanIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractProvider" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ProviderIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Provider">
+    <ns:annotation>
+      <ns:documentation>A service provider</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractProvider">
+        <ns:sequence>
+          <ns:group ref="ProviderProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="ProviderProperties">
+    <ns:sequence>
+      <ns:element name="provider_name" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Name</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="provider_location" type="SpecificLocation" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Location</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="company_type" type="CompanyType" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Company type</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="employs" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Number of employees</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:decimal">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="partner_network" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Partner network</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="reference_customer" type="ReferenceCustomer" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Reference customers</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="last_years_revenue" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Last years revenue</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="initiative" type="Initiative" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Participatory initiatives</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="report" type="ReportingInformation" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>Published reports</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="ProviderIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractJurisdiction" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="JurisdictionIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Jurisdiction">
+    <ns:annotation>
+      <ns:documentation>A jurisdictional area</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractJurisdiction">
+        <ns:sequence>
+          <ns:group ref="JurisdictionProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="JurisdictionProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="JurisdictionIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="european_union">
+        <ns:annotation>
+          <ns:documentation>European Union</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="safe_harbour">
+        <ns:annotation>
+          <ns:documentation>Safe Harbour</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractCountry" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="CountryIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Country">
+    <ns:annotation>
+      <ns:documentation>A country</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractCountry">
+        <ns:sequence>
+          <ns:group ref="CountryProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="CountryProperties">
+    <ns:sequence>
+      <ns:element name="jurisdiction" type="Jurisdiction" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The jurisdictions the country falls under</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="CountryIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="germany">
+        <ns:annotation>
+          <ns:documentation>Germany</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractAddress" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="AddressIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Address">
+    <ns:annotation>
+      <ns:documentation>A postal address</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractAddress">
+        <ns:sequence>
+          <ns:group ref="AddressProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="AddressProperties">
+    <ns:sequence>
+      <ns:element name="address_line" minOccurs="0" maxOccurs="unbounded">
+        <ns:annotation>
+          <ns:documentation>The address lines</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="AddressIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractLocation" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="LocationIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="Location">
@@ -739,7 +610,93 @@
       <ns:documentation>Location information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractLocation">
+        <ns:sequence>
+          <ns:group ref="LocationProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="LocationProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="LocationIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractSpecificLocation" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="AbstractLocation">
+        <ns:attribute name="identifier" type="SpecificLocationIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="SpecificLocation">
+    <ns:annotation>
+      <ns:documentation>Specific location information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractSpecificLocation">
+        <ns:sequence>
+          <ns:group ref="SpecificLocationProperties"/>
+          <ns:group ref="LocationProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="SpecificLocationProperties">
+    <ns:sequence>
+      <ns:element name="country" type="Country" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Country</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="address" type="Address" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Postal address</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="SpecificLocationIdentifier">
+    <ns:restriction base="LocationIdentifier"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractUnspecificLocation" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="AbstractLocation">
+        <ns:attribute name="identifier" type="UnspecificLocationIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="UnspecificLocation">
+    <ns:annotation>
+      <ns:documentation>Unspecific location information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractUnspecificLocation">
+        <ns:sequence>
+          <ns:group ref="UnspecificLocationProperties"/>
+          <ns:group ref="LocationProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="UnspecificLocationProperties">
+    <ns:sequence>
+      <ns:element name="jurisdiction" type="Jurisdiction" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The jurisdiction in which the service operates</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="UnspecificLocationIdentifier">
+    <ns:restriction base="LocationIdentifier"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractCloudServiceModel" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="CloudServiceModelIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="CloudServiceModel">
@@ -747,7 +704,45 @@
       <ns:documentation>A cloud service model</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractCloudServiceModel">
+        <ns:sequence>
+          <ns:group ref="CloudServiceModelProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="CloudServiceModelProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="CloudServiceModelIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="saas">
+        <ns:annotation>
+          <ns:documentation>Software as a Service (SaaS)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="paas">
+        <ns:annotation>
+          <ns:documentation>Platform as a Service (PaaS)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="iaas">
+        <ns:annotation>
+          <ns:documentation>Infrastructure as a Service (IaaS)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="haas">
+        <ns:annotation>
+          <ns:documentation>Hardware as a Service (HaaS)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractServiceCategory" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ServiceCategoryIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="ServiceCategory">
@@ -755,15 +750,74 @@
       <ns:documentation>The category of a service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractServiceCategory">
+        <ns:sequence>
+          <ns:group ref="ServiceCategoryProperties"/>
+        </ns:sequence>
+      </ns:extension>
     </ns:complexContent>
   </ns:complexType>
-  <ns:complexType name="ServiceTag">
+  <ns:group name="ServiceCategoryProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="ServiceCategoryIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractAddOnRepository" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="AddOnRepositoryIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="AddOnRepository">
     <ns:annotation>
-      <ns:documentation>A Service tag</ns:documentation>
+      <ns:documentation>A service add-on repo</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractAddOnRepository">
+        <ns:sequence>
+          <ns:group ref="AddOnRepositoryProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="AddOnRepositoryProperties">
+    <ns:sequence>
+      <ns:element name="url" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Repository URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="number_of_add_ons" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Number of add-ons</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:decimal">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="AddOnRepositoryIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractChargeUnit" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ChargeUnitIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="ChargeUnit">
@@ -771,7 +825,35 @@
       <ns:documentation>The charge unit</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractChargeUnit">
+        <ns:sequence>
+          <ns:group ref="ChargeUnitProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="ChargeUnitProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="ChargeUnitIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="user_account">
+        <ns:annotation>
+          <ns:documentation>The number of user accounts</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="floating_license">
+        <ns:annotation>
+          <ns:documentation>The number of floating licenses</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractKeyControl" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="KeyControlIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="KeyControl">
@@ -779,7 +861,71 @@
       <ns:documentation>One possibility of key control</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractKeyControl">
+        <ns:sequence>
+          <ns:group ref="KeyControlProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="KeyControlProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="KeyControlIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="user_only">
+        <ns:annotation>
+          <ns:documentation>Only the service user controls the encryption keys</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="provider_only">
+        <ns:annotation>
+          <ns:documentation>Only the provider controls the encryption keys</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="shared">
+        <ns:annotation>
+          <ns:documentation>Both user and provider control the encryption keys</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractDataEncryption" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="DataEncryptionIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="DataEncryption">
+    <ns:annotation>
+      <ns:documentation>Data encryption means</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractDataEncryption">
+        <ns:sequence>
+          <ns:group ref="DataEncryptionProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="DataEncryptionProperties">
+    <ns:sequence>
+      <ns:element name="key_control" type="KeyControl" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>How is the key control carried out</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="DataEncryptionIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractAuditOption" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="AuditOptionIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="AuditOption">
@@ -787,7 +933,30 @@
       <ns:documentation>An option to audit a service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractAuditOption">
+        <ns:sequence>
+          <ns:group ref="AuditOptionProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="AuditOptionProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="AuditOptionIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="audit_log">
+        <ns:annotation>
+          <ns:documentation>Audit log</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractBillingTerm" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="BillingTermIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="BillingTerm">
@@ -795,7 +964,35 @@
       <ns:documentation>The billing term, e.g. "per month".</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractBillingTerm">
+        <ns:sequence>
+          <ns:group ref="BillingTermProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="BillingTermProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="BillingTermIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="monthly">
+        <ns:annotation>
+          <ns:documentation>Monthly billing</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="annually">
+        <ns:annotation>
+          <ns:documentation>Annually billing</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractPaymentTerm" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="PaymentTermIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="PaymentTerm">
@@ -803,7 +1000,35 @@
       <ns:documentation>The payment terms, i.e., in advance and after use.</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractPaymentTerm">
+        <ns:sequence>
+          <ns:group ref="PaymentTermProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="PaymentTermProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="PaymentTermIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="in_advance">
+        <ns:annotation>
+          <ns:documentation>Payment is done in advance of service consumption</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="after_use">
+        <ns:annotation>
+          <ns:documentation>Payment is done after service consumption</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractPaymentOption" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="PaymentOptionIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="PaymentOption">
@@ -811,7 +1036,76 @@
       <ns:documentation>The payment option</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractPaymentOption">
+        <ns:sequence>
+          <ns:group ref="PaymentOptionProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="PaymentOptionProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="PaymentOptionIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="credit_card">
+        <ns:annotation>
+          <ns:documentation>Credit card</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="cheque">
+        <ns:annotation>
+          <ns:documentation>Cheque</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="invoice">
+        <ns:annotation>
+          <ns:documentation>Invoice</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractBillingAndPayment" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="BillingAndPaymentIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="BillingAndPayment">
+    <ns:annotation>
+      <ns:documentation>Billing and payment information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractBillingAndPayment">
+        <ns:sequence>
+          <ns:group ref="BillingAndPaymentProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="BillingAndPaymentProperties">
+    <ns:sequence>
+      <ns:element name="billing_term" type="BillingTerm" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Billing</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="payment_term" type="PaymentTerm" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Payment</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="BillingAndPaymentIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractBrowser" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="BrowserIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="Browser">
@@ -819,15 +1113,63 @@
       <ns:documentation>A browser</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractBrowser">
         <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The browser homepage URL</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="BrowserProperties"/>
         </ns:sequence>
       </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="BrowserProperties">
+    <ns:sequence>
+      <ns:element name="url" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Homepage</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="BrowserIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="firefox">
+        <ns:annotation>
+          <ns:documentation>Mozilla Firefox</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="opera">
+        <ns:annotation>
+          <ns:documentation>Opera Browser</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="chrome">
+        <ns:annotation>
+          <ns:documentation>Google Chrome</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="internet_explorer">
+        <ns:annotation>
+          <ns:documentation>Internet Explorer</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="safari">
+        <ns:annotation>
+          <ns:documentation>Apple Safari</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractBrowserPlugin" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="BrowserPluginIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="BrowserPlugin">
@@ -835,36 +1177,257 @@
       <ns:documentation>A browser plugin</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractBrowserPlugin">
         <ns:sequence>
-          <ns:element name="url" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The browser plugin URL</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="BrowserPluginProperties"/>
         </ns:sequence>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
-  <ns:complexType name="CompatibleBrowser">
+  <ns:group name="BrowserPluginProperties">
+    <ns:sequence>
+      <ns:element name="url" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The browser plugin URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="BrowserPluginIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="flash">
+        <ns:annotation>
+          <ns:documentation>Adobe Flash</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="silverlight">
+        <ns:annotation>
+          <ns:documentation>Microsoft Silverlight</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractInterface" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="InterfaceIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Interface">
     <ns:annotation>
-      <ns:documentation>A compatible browser</ns:documentation>
+      <ns:documentation>A service interface</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractInterface">
         <ns:sequence>
-          <ns:element name="compatible_browser" type="Browser" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The compatible browser</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="min_version" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The minimum version of the browser</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="InterfaceProperties"/>
         </ns:sequence>
       </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="InterfaceProperties">
+    <ns:sequence>
+      <ns:element name="interface_documentation" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The documentation of the interface</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="InterfaceIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractRestInterface" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="AbstractInterface">
+        <ns:attribute name="identifier" type="RestInterfaceIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="RestInterface">
+    <ns:annotation>
+      <ns:documentation>A RESTful interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractRestInterface">
+        <ns:sequence>
+          <ns:group ref="RestInterfaceProperties"/>
+          <ns:group ref="InterfaceProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="RestInterfaceProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="RestInterfaceIdentifier">
+    <ns:restriction base="InterfaceIdentifier"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractSoapInterface" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="AbstractInterface">
+        <ns:attribute name="identifier" type="SoapInterfaceIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="SoapInterface">
+    <ns:annotation>
+      <ns:documentation>A SOAP interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractSoapInterface">
+        <ns:sequence>
+          <ns:group ref="SoapInterfaceProperties"/>
+          <ns:group ref="InterfaceProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="SoapInterfaceProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="SoapInterfaceIdentifier">
+    <ns:restriction base="InterfaceIdentifier"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractXmlrpcInterface" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="AbstractInterface">
+        <ns:attribute name="identifier" type="XmlrpcInterfaceIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="XmlrpcInterface">
+    <ns:annotation>
+      <ns:documentation>An XMLRPC interface</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractXmlrpcInterface">
+        <ns:sequence>
+          <ns:group ref="XmlrpcInterfaceProperties"/>
+          <ns:group ref="InterfaceProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="XmlrpcInterfaceProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="XmlrpcInterfaceIdentifier">
+    <ns:restriction base="InterfaceIdentifier"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractFeature" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="FeatureIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Feature">
+    <ns:annotation>
+      <ns:documentation>A service feature</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractFeature">
+        <ns:sequence>
+          <ns:group ref="FeatureProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="FeatureProperties">
+    <ns:sequence>
+      <ns:element name="feature_name" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Name</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="description" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Description</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="FeatureIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractCompatibleBrowser" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="CompatibleBrowserIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CompatibleBrowser">
+    <ns:annotation>
+      <ns:documentation>Compatible browser information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractCompatibleBrowser">
+        <ns:sequence>
+          <ns:group ref="CompatibleBrowserProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="CompatibleBrowserProperties">
+    <ns:sequence>
+      <ns:element name="browser" type="Browser" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The browser</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="min_version" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Min version required</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="CompatibleBrowserIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractRequiredPlugin" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="RequiredPluginIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="RequiredPlugin">
@@ -872,28 +1435,98 @@
       <ns:documentation>The required plugins</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase">
+      <ns:extension base="AbstractRequiredPlugin">
         <ns:sequence>
-          <ns:element name="required_plugin" type="BrowserPlugin" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The plugin</ns:documentation>
-            </ns:annotation>
-          </ns:element>
-          <ns:element name="min_version" type="ns:string" minOccurs="0">
-            <ns:annotation>
-              <ns:documentation>The minimum version required of the browser plugin</ns:documentation>
-            </ns:annotation>
-          </ns:element>
+          <ns:group ref="RequiredPluginProperties"/>
         </ns:sequence>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
-  <ns:complexType name="DataCapabilityOperation">
+  <ns:group name="RequiredPluginProperties">
+    <ns:sequence>
+      <ns:element name="browser_plugin" type="BrowserPlugin" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The plugin, which is required</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="min_version" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The minimum version</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="RequiredPluginIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractMaintenanceFree" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="MaintenanceFreeIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="MaintenanceFree">
     <ns:annotation>
-      <ns:documentation>The data capability operation</ns:documentation>
+      <ns:documentation>Information about service maintenance</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractMaintenanceFree">
+        <ns:sequence>
+          <ns:group ref="MaintenanceFreeProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="MaintenanceFreeProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="MaintenanceFreeIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractMaintenanceWindow" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="MaintenanceWindowIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="MaintenanceWindow">
+    <ns:annotation>
+      <ns:documentation>The maintenance window</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractMaintenanceWindow">
+        <ns:sequence>
+          <ns:group ref="MaintenanceWindowProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="MaintenanceWindowProperties">
+    <ns:sequence>
+      <ns:element name="timespan" type="Timespan" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>The maintenance window</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="MaintenanceWindowIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractDataFormat" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="DataFormatIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="DataFormat">
@@ -901,7 +1534,90 @@
       <ns:documentation>The data format</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractDataFormat">
+        <ns:sequence>
+          <ns:group ref="DataFormatProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="DataFormatProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="DataFormatIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="csv">
+        <ns:annotation>
+          <ns:documentation>Comma-separated values (CSV)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="xls">
+        <ns:annotation>
+          <ns:documentation>Microsoft Excel</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="html">
+        <ns:annotation>
+          <ns:documentation>HTML</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="rtf">
+        <ns:annotation>
+          <ns:documentation>Rich text (RTF)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="word">
+        <ns:annotation>
+          <ns:documentation>Microsoft Word</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="open_office">
+        <ns:annotation>
+          <ns:documentation>Open Office</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="pdf">
+        <ns:annotation>
+          <ns:documentation>Adobe PDF</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="text">
+        <ns:annotation>
+          <ns:documentation>Plain text</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="odf">
+        <ns:annotation>
+          <ns:documentation>Open Document Format (ODF)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="pptx">
+        <ns:annotation>
+          <ns:documentation>Microsoft PowerPoint</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="png">
+        <ns:annotation>
+          <ns:documentation>Portable Network Graphics (PNG)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="jpeg">
+        <ns:annotation>
+          <ns:documentation>JPEG</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="svg">
+        <ns:annotation>
+          <ns:documentation>Scalable Vector Graphics (SVG)</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractCommunicationProtection" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="CommunicationProtectionIdentifier"/>
+      </ns:restriction>
     </ns:complexContent>
   </ns:complexType>
   <ns:complexType name="CommunicationProtection">
@@ -909,7 +1625,304 @@
       <ns:documentation>A communication protection means</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="SDLTypeBase"/>
+      <ns:extension base="AbstractCommunicationProtection">
+        <ns:sequence>
+          <ns:group ref="CommunicationProtectionProperties"/>
+        </ns:sequence>
+      </ns:extension>
     </ns:complexContent>
   </ns:complexType>
+  <ns:group name="CommunicationProtectionProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="CommunicationProtectionIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="https">
+        <ns:annotation>
+          <ns:documentation>HTTPS encryption</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="vpn">
+        <ns:annotation>
+          <ns:documentation>VPN connection</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractReferenceCustomer" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ReferenceCustomerIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ReferenceCustomer">
+    <ns:annotation>
+      <ns:documentation>A reference Customer</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractReferenceCustomer">
+        <ns:sequence>
+          <ns:group ref="ReferenceCustomerProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="ReferenceCustomerProperties">
+    <ns:sequence>
+      <ns:element name="name" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Customer name</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="url" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Customer URL</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="users" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Service Users</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:decimal">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="description" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>Description</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:string">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="ReferenceCustomerIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractCompanyType" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="CompanyTypeIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="CompanyType">
+    <ns:annotation>
+      <ns:documentation>The company type</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractCompanyType">
+        <ns:sequence>
+          <ns:group ref="CompanyTypeProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="CompanyTypeProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="CompanyTypeIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="plc">
+        <ns:annotation>
+          <ns:documentation>Public Limited Company</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractInitiative" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="InitiativeIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Initiative">
+    <ns:annotation>
+      <ns:documentation>An business initiative</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractInitiative">
+        <ns:sequence>
+          <ns:group ref="InitiativeProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="InitiativeProperties">
+    <ns:sequence>
+      <ns:element name="url" minOccurs="0" maxOccurs="1">
+        <ns:annotation>
+          <ns:documentation>The initiative homepage</ns:documentation>
+        </ns:annotation>
+        <ns:complexType>
+          <ns:simpleContent>
+            <ns:extension base="ns:anyURI">
+              <ns:attribute name="annotation"/>
+            </ns:extension>
+          </ns:simpleContent>
+        </ns:complexType>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="InitiativeIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
+  <ns:complexType name="AbstractReport" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ReportIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Report">
+    <ns:annotation>
+      <ns:documentation>A published report</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractReport">
+        <ns:sequence>
+          <ns:group ref="ReportProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="ReportProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="ReportIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="financial_statement">
+        <ns:annotation>
+          <ns:documentation>The financial statement</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractPeriod" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="PeriodIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="Period">
+    <ns:annotation>
+      <ns:documentation>Period</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractPeriod">
+        <ns:sequence>
+          <ns:group ref="PeriodProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="PeriodProperties">
+    <ns:sequence/>
+  </ns:group>
+  <ns:simpleType name="PeriodIdentifier">
+    <ns:restriction base="ns:string">
+      <ns:enumeration value="daily">
+        <ns:annotation>
+          <ns:documentation>Daily</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="weekly">
+        <ns:annotation>
+          <ns:documentation>Weekly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="biweekly">
+        <ns:annotation>
+          <ns:documentation>Biweekly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="monthly">
+        <ns:annotation>
+          <ns:documentation>Monthly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="bimonthly">
+        <ns:annotation>
+          <ns:documentation>Bimonthly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="quarterly">
+        <ns:annotation>
+          <ns:documentation>Quarterly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="halfyearly">
+        <ns:annotation>
+          <ns:documentation>Halfyearly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+      <ns:enumeration value="yearly">
+        <ns:annotation>
+          <ns:documentation>Yearly</ns:documentation>
+        </ns:annotation>
+      </ns:enumeration>
+    </ns:restriction>
+  </ns:simpleType>
+  <ns:complexType name="AbstractReportingInformation" abstract="true">
+    <ns:complexContent>
+      <ns:restriction base="SDLTypeBase">
+        <ns:attribute name="identifier" type="ReportingInformationIdentifier"/>
+      </ns:restriction>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:complexType name="ReportingInformation">
+    <ns:annotation>
+      <ns:documentation>Published reporting information</ns:documentation>
+    </ns:annotation>
+    <ns:complexContent>
+      <ns:extension base="AbstractReportingInformation">
+        <ns:sequence>
+          <ns:group ref="ReportingInformationProperties"/>
+        </ns:sequence>
+      </ns:extension>
+    </ns:complexContent>
+  </ns:complexType>
+  <ns:group name="ReportingInformationProperties">
+    <ns:sequence>
+      <ns:element name="report" type="Report" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Report</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+      <ns:element name="period" type="Period" minOccurs="0">
+        <ns:annotation>
+          <ns:documentation>Period</ns:documentation>
+        </ns:annotation>
+      </ns:element>
+    </ns:sequence>
+  </ns:group>
+  <ns:simpleType name="ReportingInformationIdentifier">
+    <ns:restriction base="ns:string"/>
+  </ns:simpleType>
 </ns:schema>

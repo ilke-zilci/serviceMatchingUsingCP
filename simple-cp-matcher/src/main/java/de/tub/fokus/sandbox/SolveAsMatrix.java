@@ -1,4 +1,4 @@
-package de.tub.fokus;
+package de.tub.fokus.sandbox;
 
 import javax.constraints.Problem;
 import javax.constraints.ProblemFactory;
@@ -6,7 +6,7 @@ import javax.constraints.Solution;
 import javax.constraints.Solver;
 import javax.constraints.Var;
 
-import de.tub.fokus.sandbox.PostElementVariations;
+import de.tub.fokus.sm.cp.csp.AbstractProblem;
 
 /**
  * implementation for the simple numeric matching problem
@@ -15,12 +15,12 @@ import de.tub.fokus.sandbox.PostElementVariations;
  * @author izi
  *
  */
-public class SimpleNumericMatchingProblem extends AbstractProblem {
+public class SolveAsMatrix {
 	Problem matching;
 	Solver solver;
 	Solution[] solutions;
 
-	public SimpleNumericMatchingProblem() {
+	public SolveAsMatrix() {
 		// PROBLEM DEFINITION
 		matching = ProblemFactory.newProblem("ServiceMatching");
 	}
@@ -42,32 +42,30 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 
 	// if solver gets created before posting constraints
 	// error : invalid attempt to get indomainvar of Var varname
-	@Override
 	public void buildModel() {
-		
+
 		// TODO serviceX.QOSTERM1 for each service, add to q1values
 		int[] q1values = { 3, 2, 3, 3, 2, 3, 3 };
 		int[] q2values = { 120, 100, 130, 120, 100, 130, 130 };
 		int[] q3values = { 98, 95, 97, 98, 95, 97, 97 };
 		int[][] qvalues = { q1values, q2values, q3values };
-		
+
 		// DEFINE SERVICE QUERY AS CONSTRAINTS WITH POST METHOD
 		Var indexVar = matching.variable("serviceIndex", 0, 6);
-		 for (int j=0; j<qosdemand.length; j++) {
-		 matching.postElement(qvalues[j], indexVar, ">", qosdemand[j]);
-		 }
+		for (int j = 0; j < qosdemand.length; j++) {
+			matching.postElement(qvalues[j], indexVar, ">", qosdemand[j]);
+		}
 	}
-	@Override
+
 	public Solver createSolver() {
 		solver = matching.getSolver();
 		return solver;
 	}
 
-	@Override
 	public void solveAll() {
 
 		matching.log("=== Find all solutions:");
-		
+
 		solutions = solver.findAllSolutions();
 		if (solutions != null) {
 			for (int i = 0; i < solutions.length; i++) {
@@ -75,21 +73,19 @@ public class SimpleNumericMatchingProblem extends AbstractProblem {
 			}
 		}
 	}
-	
-	@Override
-	public void configureSearch() {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void prettyOut() {
-		// TODO Auto-generated method stub
-
-	}
 	public static void main(String[] args) {
-		SimpleNumericMatchingProblem matchp = new SimpleNumericMatchingProblem();
-		matchp.execute();		
+		SolveAsMatrix matchp = new SolveAsMatrix();
+		matchp.buildModel();
+		matchp.createSolver();
+		matchp.configureSearch();
+		matchp.solveAll();
+
+	}
+
+	private void configureSearch() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
