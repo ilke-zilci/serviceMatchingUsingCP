@@ -40,13 +40,6 @@ public class FeatureListConstraint implements QoSConstraint {
 
 	@Override
 	public void evaluate(QoSSpec qoSSpec) {
-		// TODO possible to reuse for other constraint types?
-		Map<Integer, Evaluator> evaluators = new HashMap<Integer, Evaluator>();
-		evaluators.put(1, new FailEvaluator());
-		evaluators.put(2, new ExactEvaluator());
-		evaluators.put(3, new SuperEvaluator());
-		evaluators.put(4, new PartialEvaluator());
-		evaluators.put(5, new NoSpecEvaluator());
 
 		int[] qoSSpecCodes = ((FeatureListSpec) qoSSpec).getCodes();
 		// TODO deal with incomplete knowledge
