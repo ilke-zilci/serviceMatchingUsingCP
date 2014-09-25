@@ -19,21 +19,9 @@
     <ns:annotation>
       <ns:documentation>The base type of all SDL types and facts. Contains annotations and documentation.</ns:documentation>
     </ns:annotation>
-    <ns:choice>
-      <ns:element name="documentation" minOccurs="0" maxOccurs="unbounded" type="ns:string">
-        <ns:annotation>
-          <ns:documentation>The documentation of this type or fact instance.</ns:documentation>
-        </ns:annotation>
-      </ns:element>
-    </ns:choice>
     <ns:attribute name="annotation" type="ns:string">
       <ns:annotation>
         <ns:documentation>An arbitrary annotation to be displayed for the description consumer.</ns:documentation>
-      </ns:annotation>
-    </ns:attribute>
-    <ns:attribute name="identifier">
-      <ns:annotation>
-        <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
       </ns:annotation>
     </ns:attribute>
     <ns:attribute name="uri">
@@ -42,19 +30,12 @@
       </ns:annotation>
     </ns:attribute>
   </ns:complexType>
-  <ns:complexType name="AbstractService" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="uri" type="ns:anyURI"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Service">
     <ns:annotation>
       <ns:documentation>A service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractService">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ServiceProperties"/>
         </ns:sequence>
@@ -338,22 +319,20 @@
       </ns:element>
     </ns:sequence>
   </ns:group>
-  <ns:complexType name="AbstractTimespan" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="TimespanIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Timespan">
     <ns:annotation>
       <ns:documentation>An arbitrary timespan</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractTimespan">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="TimespanProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="TimespanIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -388,22 +367,20 @@
   <ns:simpleType name="TimespanIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractProvider" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ProviderIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Provider">
     <ns:annotation>
       <ns:documentation>A service provider</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractProvider">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ProviderProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ProviderIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -487,22 +464,20 @@
   <ns:simpleType name="ProviderIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractJurisdiction" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="JurisdictionIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Jurisdiction">
     <ns:annotation>
       <ns:documentation>A jurisdictional area</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractJurisdiction">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="JurisdictionProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="JurisdictionIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -523,22 +498,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractCountry" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="CountryIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Country">
     <ns:annotation>
       <ns:documentation>A country</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractCountry">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="CountryProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="CountryIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -560,22 +533,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractAddress" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="AddressIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Address">
     <ns:annotation>
       <ns:documentation>A postal address</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractAddress">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="AddressProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="AddressIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -598,22 +569,20 @@
   <ns:simpleType name="AddressIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractLocation" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="LocationIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Location">
     <ns:annotation>
       <ns:documentation>Location information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractLocation">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="LocationProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="LocationIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -623,23 +592,21 @@
   <ns:simpleType name="LocationIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractSpecificLocation" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="AbstractLocation">
-        <ns:attribute name="identifier" type="SpecificLocationIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="SpecificLocation">
     <ns:annotation>
       <ns:documentation>Specific location information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractSpecificLocation">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="SpecificLocationProperties"/>
           <ns:group ref="LocationProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="SpecificLocationIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -660,23 +627,21 @@
   <ns:simpleType name="SpecificLocationIdentifier">
     <ns:restriction base="LocationIdentifier"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractUnspecificLocation" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="AbstractLocation">
-        <ns:attribute name="identifier" type="UnspecificLocationIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="UnspecificLocation">
     <ns:annotation>
       <ns:documentation>Unspecific location information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractUnspecificLocation">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="UnspecificLocationProperties"/>
           <ns:group ref="LocationProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="UnspecificLocationIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -692,22 +657,20 @@
   <ns:simpleType name="UnspecificLocationIdentifier">
     <ns:restriction base="LocationIdentifier"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractCloudServiceModel" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="CloudServiceModelIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="CloudServiceModel">
     <ns:annotation>
       <ns:documentation>A cloud service model</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractCloudServiceModel">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="CloudServiceModelProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="CloudServiceModelIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -738,22 +701,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractServiceCategory" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ServiceCategoryIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="ServiceCategory">
     <ns:annotation>
       <ns:documentation>The category of a service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractServiceCategory">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ServiceCategoryProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ServiceCategoryIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -763,22 +724,20 @@
   <ns:simpleType name="ServiceCategoryIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractAddOnRepository" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="AddOnRepositoryIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="AddOnRepository">
     <ns:annotation>
       <ns:documentation>A service add-on repo</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractAddOnRepository">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="AddOnRepositoryProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="AddOnRepositoryIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -813,22 +772,20 @@
   <ns:simpleType name="AddOnRepositoryIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractChargeUnit" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ChargeUnitIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="ChargeUnit">
     <ns:annotation>
       <ns:documentation>The charge unit</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractChargeUnit">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ChargeUnitProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ChargeUnitIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -849,22 +806,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractKeyControl" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="KeyControlIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="KeyControl">
     <ns:annotation>
       <ns:documentation>One possibility of key control</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractKeyControl">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="KeyControlProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="KeyControlIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -890,22 +845,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractDataEncryption" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="DataEncryptionIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="DataEncryption">
     <ns:annotation>
       <ns:documentation>Data encryption means</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractDataEncryption">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="DataEncryptionProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="DataEncryptionIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -921,22 +874,20 @@
   <ns:simpleType name="DataEncryptionIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractAuditOption" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="AuditOptionIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="AuditOption">
     <ns:annotation>
       <ns:documentation>An option to audit a service</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractAuditOption">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="AuditOptionProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="AuditOptionIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -952,22 +903,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractBillingTerm" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="BillingTermIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="BillingTerm">
     <ns:annotation>
       <ns:documentation>The billing term, e.g. "per month".</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractBillingTerm">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="BillingTermProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="BillingTermIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -988,22 +937,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractPaymentTerm" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="PaymentTermIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="PaymentTerm">
     <ns:annotation>
       <ns:documentation>The payment terms, i.e., in advance and after use.</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractPaymentTerm">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="PaymentTermProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="PaymentTermIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1024,22 +971,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractPaymentOption" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="PaymentOptionIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="PaymentOption">
     <ns:annotation>
       <ns:documentation>The payment option</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractPaymentOption">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="PaymentOptionProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="PaymentOptionIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1065,22 +1010,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractBillingAndPayment" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="BillingAndPaymentIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="BillingAndPayment">
     <ns:annotation>
       <ns:documentation>Billing and payment information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractBillingAndPayment">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="BillingAndPaymentProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="BillingAndPaymentIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1101,22 +1044,20 @@
   <ns:simpleType name="BillingAndPaymentIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractBrowser" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="BrowserIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Browser">
     <ns:annotation>
       <ns:documentation>A browser</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractBrowser">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="BrowserProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="BrowserIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1165,22 +1106,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractBrowserPlugin" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="BrowserPluginIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="BrowserPlugin">
     <ns:annotation>
       <ns:documentation>A browser plugin</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractBrowserPlugin">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="BrowserPluginProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="BrowserPluginIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1214,22 +1153,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractInterface" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="InterfaceIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Interface">
     <ns:annotation>
       <ns:documentation>A service interface</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractInterface">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="InterfaceProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="InterfaceIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1252,23 +1189,21 @@
   <ns:simpleType name="InterfaceIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractRestInterface" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="AbstractInterface">
-        <ns:attribute name="identifier" type="RestInterfaceIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="RestInterface">
     <ns:annotation>
       <ns:documentation>A RESTful interface</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractRestInterface">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="RestInterfaceProperties"/>
           <ns:group ref="InterfaceProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="RestInterfaceIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1278,23 +1213,21 @@
   <ns:simpleType name="RestInterfaceIdentifier">
     <ns:restriction base="InterfaceIdentifier"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractSoapInterface" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="AbstractInterface">
-        <ns:attribute name="identifier" type="SoapInterfaceIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="SoapInterface">
     <ns:annotation>
       <ns:documentation>A SOAP interface</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractSoapInterface">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="SoapInterfaceProperties"/>
           <ns:group ref="InterfaceProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="SoapInterfaceIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1304,23 +1237,21 @@
   <ns:simpleType name="SoapInterfaceIdentifier">
     <ns:restriction base="InterfaceIdentifier"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractXmlrpcInterface" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="AbstractInterface">
-        <ns:attribute name="identifier" type="XmlrpcInterfaceIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="XmlrpcInterface">
     <ns:annotation>
       <ns:documentation>An XMLRPC interface</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractXmlrpcInterface">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="XmlrpcInterfaceProperties"/>
           <ns:group ref="InterfaceProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="XmlrpcInterfaceIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1330,22 +1261,20 @@
   <ns:simpleType name="XmlrpcInterfaceIdentifier">
     <ns:restriction base="InterfaceIdentifier"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractFeature" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="FeatureIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Feature">
     <ns:annotation>
       <ns:documentation>A service feature</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractFeature">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="FeatureProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="FeatureIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1380,22 +1309,20 @@
   <ns:simpleType name="FeatureIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractCompatibleBrowser" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="CompatibleBrowserIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="CompatibleBrowser">
     <ns:annotation>
       <ns:documentation>Compatible browser information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractCompatibleBrowser">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="CompatibleBrowserProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="CompatibleBrowserIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1423,22 +1350,20 @@
   <ns:simpleType name="CompatibleBrowserIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractRequiredPlugin" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="RequiredPluginIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="RequiredPlugin">
     <ns:annotation>
       <ns:documentation>The required plugins</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractRequiredPlugin">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="RequiredPluginProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="RequiredPluginIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1466,22 +1391,20 @@
   <ns:simpleType name="RequiredPluginIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractMaintenanceFree" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="MaintenanceFreeIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="MaintenanceFree">
     <ns:annotation>
       <ns:documentation>Information about service maintenance</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractMaintenanceFree">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="MaintenanceFreeProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="MaintenanceFreeIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1491,22 +1414,20 @@
   <ns:simpleType name="MaintenanceFreeIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractMaintenanceWindow" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="MaintenanceWindowIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="MaintenanceWindow">
     <ns:annotation>
       <ns:documentation>The maintenance window</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractMaintenanceWindow">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="MaintenanceWindowProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="MaintenanceWindowIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1522,22 +1443,20 @@
   <ns:simpleType name="MaintenanceWindowIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractDataFormat" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="DataFormatIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="DataFormat">
     <ns:annotation>
       <ns:documentation>The data format</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractDataFormat">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="DataFormatProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="DataFormatIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1613,22 +1532,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractCommunicationProtection" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="CommunicationProtectionIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="CommunicationProtection">
     <ns:annotation>
       <ns:documentation>A communication protection means</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractCommunicationProtection">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="CommunicationProtectionProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="CommunicationProtectionIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1649,22 +1566,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractReferenceCustomer" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ReferenceCustomerIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="ReferenceCustomer">
     <ns:annotation>
       <ns:documentation>A reference Customer</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractReferenceCustomer">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ReferenceCustomerProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ReferenceCustomerIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1723,22 +1638,20 @@
   <ns:simpleType name="ReferenceCustomerIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractCompanyType" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="CompanyTypeIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="CompanyType">
     <ns:annotation>
       <ns:documentation>The company type</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractCompanyType">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="CompanyTypeProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="CompanyTypeIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1754,22 +1667,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractInitiative" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="InitiativeIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Initiative">
     <ns:annotation>
       <ns:documentation>An business initiative</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractInitiative">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="InitiativeProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="InitiativeIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1792,22 +1703,20 @@
   <ns:simpleType name="InitiativeIdentifier">
     <ns:restriction base="ns:string"/>
   </ns:simpleType>
-  <ns:complexType name="AbstractReport" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ReportIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Report">
     <ns:annotation>
       <ns:documentation>A published report</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractReport">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ReportProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ReportIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1823,22 +1732,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractPeriod" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="PeriodIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="Period">
     <ns:annotation>
       <ns:documentation>Period</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractPeriod">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="PeriodProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="PeriodIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>
@@ -1889,22 +1796,20 @@
       </ns:enumeration>
     </ns:restriction>
   </ns:simpleType>
-  <ns:complexType name="AbstractReportingInformation" abstract="true">
-    <ns:complexContent>
-      <ns:restriction base="SDLTypeBase">
-        <ns:attribute name="identifier" type="ReportingInformationIdentifier"/>
-      </ns:restriction>
-    </ns:complexContent>
-  </ns:complexType>
   <ns:complexType name="ReportingInformation">
     <ns:annotation>
       <ns:documentation>Published reporting information</ns:documentation>
     </ns:annotation>
     <ns:complexContent>
-      <ns:extension base="AbstractReportingInformation">
+      <ns:extension base="SDLTypeBase">
         <ns:sequence>
           <ns:group ref="ReportingInformationProperties"/>
         </ns:sequence>
+        <ns:attribute name="identifier" type="ReportingInformationIdentifier">
+          <ns:annotation>
+            <ns:documentation>An identifier for a type instance. Two instances are the same, if they share the same identifier.</ns:documentation>
+          </ns:annotation>
+        </ns:attribute>
       </ns:extension>
     </ns:complexContent>
   </ns:complexType>

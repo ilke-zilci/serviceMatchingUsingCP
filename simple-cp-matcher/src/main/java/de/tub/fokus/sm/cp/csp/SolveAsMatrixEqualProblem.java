@@ -2,13 +2,13 @@ package de.tub.fokus.sm.cp.csp;
 
 import java.util.List;
 
-import javax.constraints.ConsistencyLevel;
 import javax.constraints.Constraint;
 import javax.constraints.Objective;
 import javax.constraints.ProblemFactory;
 import javax.constraints.Solution;
 import javax.constraints.Var;
 import javax.constraints.impl.constraint.Element;
+import javax.constraints.impl.constraint.Linear;
 
 import de.tub.fokus.sm.cp.model.ConstraintException;
 
@@ -47,7 +47,7 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		int serviceIndexMax = qvalues[0].length - 1;
 		// DEFINE SERVICE QUERY AS CONSTRAINTS WITH POST METHOD
 		Var indexVar = matching.variable("serviceIndex", 0, serviceIndexMax);
-		for (int j = 1; j < qosdemand.length; j++) {
+		for (int j = 0; j < qosdemand.length; j++) {
 			matching.postElement(qvalues[j], indexVar, "=", qosdemand[j]);
 		}
 
@@ -74,6 +74,7 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		int[] q2values = qvalues[1];
 		Element e2 = new Element(q2values, indexVar, "!=", qosdemand[1]);
 		Var violation2 = matching.add(e2).asBool().multiply(60);
+
 		int[] q3values = qvalues[2];
 		Element e3 = new Element(q3values, indexVar, "!=", qosdemand[2]);
 		Var violation3 = matching.add(e3).asBool().multiply(120);
@@ -89,60 +90,105 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 
 	// gives correct values for each property but not the correct serviceIndex
 	// TODO implement the relation between serviceIndex and properties
-	public void buildModelSoftDifference(int[] qosdemand, int[][] qvalues) {
+	public void buildModelSoftDifference(int[] qosdemand, int[][] qvalues)
+			throws ConstraintException {
 		int serviceIndexMax = qvalues[0].length - 1;
 		// DEFINE SERVICE QUERY AS CONSTRAINTS WITH POST METHOD
 		Var indexVar = matching.variable("serviceIndex", 0, serviceIndexMax);
 		// create the same constraints as buildModelSoftAsBool
-		int[] q1values = qvalues[0];
+		int[] serviceIds = qvalues[0];
+		Var serviceIDs = matching.variable("serviceId", serviceIds);
+
+		int[] q1values = qvalues[1];
 		Var q1property = matching.variable("property1", q1values);
-		Var[] vars = { q1property };
-		// trying to connect serviceindex to q1property
-		Element e = new Element(vars, indexVar, "=", qosdemand[0]);
-		Constraint c = matching.add(e);
 
-		int[] q2values = qvalues[1];
+		int[] q2values = qvalues[2];
 		Var q2property = matching.variable("property2", q2values);
-		Element e2 = new Element(q2values, indexVar, "=", qosdemand[1]);
-		matching.add(e2);
-		int[] q3values = qvalues[2];
-		Var q3property = matching.variable("property3", q3values);
-		Element e3 = new Element(q3values, indexVar, "=", qosdemand[2]);
-		matching.add(e3);
-		// define the violation variables on q1values[indexVar]-qosDemand1
-		// Var i =q1values[indexVar]
 
-		Var violation1 = q1property.minus(qosdemand[0]).abs();
-		Var[] weightVars = { violation1 };
+		int[] q3values = qvalues[3];
+		Var q3property = matching.variable("property3", q3values);
+
+		Linear certainId = new Linear(serviceIDs, "=", serviceIds[0]);
+		Linear certainIndex = new Linear(indexVar, "=", 0);
+		Linear certainProperty1 = new Linear(q1property, "=", q1values[0]);
+
+		Constraint c1 = matching.linear(certainId.asBool(), "=",
+				certainIndex.asBool());
+		Constraint c12 = matching.linear(certainId.asBool(), "=",
+				certainProperty1.asBool());
+		Linear certainValue2 = new Linear(serviceIDs, "=", serviceIds[1]);
+		Linear certainIndex2 = new Linear(indexVar, "=", 1);
+		Constraint c2 = matching.linear(certainValue2.asBool(), "=",
+				certainIndex2.asBool());
+		Linear certainProperty2 = new Linear(q1property, "=", q1values[1]);
+		Linear certainValue3 = new Linear(serviceIDs, "=", serviceIds[2]);
+		Linear certainIndex3 = new Linear(indexVar, "=", 2);
+		Constraint c3 = matching.linear(certainValue3.asBool(), "=",
+				certainIndex3.asBool());
+		Linear certainProperty3 = new Linear(q1property, "=", q1values[2]);
+
+		Linear certainId2 = new Linear(serviceIDs, "=", serviceIds[1]);
+		Constraint c22 = matching.linear(certainId2.asBool(), "=",
+				certainProperty2.asBool());
+		Linear certainId3 = new Linear(serviceIDs, "=", serviceIds[2]);
+		Constraint c32 = matching.linear(certainId3.asBool(), "=",
+				certainProperty3.asBool());
+		c1.post();
+		c12.post();
+		c22.post();
+		c32.post();
+		c2.post();
+		c3.post();
+		Element e = new Element(q1values, indexVar, "!=", qosdemand[0]);
+		Var violationE1 = matching.add(e).asBool().multiply(20);
+		Element e2 = new Element(q2values, indexVar, "!=", qosdemand[1]);
+		Var violationE2 = matching.add(e2).asBool().multiply(20);
+		Element e3 = new Element(q3values, indexVar, "!=", qosdemand[2]);
+		Var violationE3 = matching.add(e3).asBool().multiply(20);
+
+		// not posting the elements resulted in serviceindex independent of the
+		// values that properties get it did not have the relation
+		// q1values[indexVar], so post them but optimize on violation
+
+		Var violation1 = serviceIDs.minus(qosdemand[0]).abs();
+		violation1.setName("violation1");
+		matching.add(violation1);
+		Var[] weightVars = { violation1, violationE1, violationE2, violationE3 };
 		// Optimization objective
 		Var weightedSum = matching.sum(weightVars);
 		weightedSum.setName("Total Constraint Violations");
-		Solution solution = matching.getSolver().findOptimalSolution(
-				Objective.MINIMIZE, weightedSum);
-		solution.log();
+		matching.add(weightedSum);
+		// Solution solution = matching.getSolver().findOptimalSolution(
+		// Objective.MINIMIZE, weightedSum);
+		// solution.log();
+
 		/**
 		 * Example:
 		 * Var i = matching.variable("i", 0, 10); 
 		 * Var j = matching.variable("j", 0, 10);
 		 * Var k = i.minus(j);
 		 */
-
+		this.createSolver();
+		this.solveAll();
 	}
 
 	public static void main(String[] args) throws ConstraintException {
-		int[] qosdemand = { 3, 100, 96 };
-		// int[] q1values = { 3, 3, 0, 3, 3, 3, 3 };
+		// int[] qosdemand = { 3, 120, 98 };
+		// int[] q1values = { 3, 3, 0, 3, 3, 3, 2 };
 		// int[] q2values = { 120, 100, 110, 120, 120, 120, 120 };
 		// int[] q3values = { 98, 95, 95, 98, 98, 98, 98 };
-		int[] q1values = { 1, 2, 3 };
+		int[] qosdemand = { 5, 100, 96 };
+		int[] serviceIds = { 0, 1, 2 };
+		int[] q1values = { 2, 7, 6 };
 		int[] q2values = { 100, 100, 100 };
 		int[] q3values = { 96, 96, 96 };
-		int[][] qvalues = { q1values, q2values, q3values };
+		int[][] qvalues = { serviceIds, q1values, q2values, q3values };
 		// this happens in QoSRequest evaluateMatrix
 		SolveAsMatrixEqualProblem matchp = new SolveAsMatrixEqualProblem(
 				qosdemand, qvalues);
+
 		matchp.buildModelSoftDifference(qosdemand, qvalues);
-		// matchp.buildModel(qosdemand, qvalues);
+
 		// List<Solution> solutions = matchp.execute();
 		// int noOfSolutions;
 		// int[] matchingServiceIndexes = new int[solutions.size()];
