@@ -12,6 +12,8 @@ import javax.constraints.impl.constraint.Linear;
 
 import de.tub.fokus.sm.cp.model.ConstraintException;
 
+//TODO check input handling with serviceIds inside qvalues, does it start from qvalues[0] or qvalues[1]
+//also careful with the buildmodel, if you get the qvalues[1], you get qosdemand[1],although that must be qosdemand[0]
 public class SolveAsMatrixEqualProblem extends AbstractProblem {
 	/**
 	 * implementation for the simple numeric matching problem
@@ -47,8 +49,8 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		int serviceIndexMax = qvalues[0].length - 1;
 		// DEFINE SERVICE QUERY AS CONSTRAINTS WITH POST METHOD
 		Var indexVar = matching.variable("serviceIndex", 0, serviceIndexMax);
-		for (int j = 0; j < qosdemand.length; j++) {
-			matching.postElement(qvalues[j], indexVar, "=", qosdemand[j]);
+		for (int j = 1; j < qosdemand.length; j++) {
+			matching.postElement(qvalues[j], indexVar, "=", qosdemand[j - 1]);
 		}
 
 	}
@@ -162,6 +164,9 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		// this.solveAll();
 	}
 
+	// DECIDED TO USE THIS ONE !!!!!!!!!!!!!!!!
+	// TODO post the certainID cetrainProperty conditions in a loop for each
+	// property
 	public void buildSimpleModelDifference(int[] qosdemand, int[][] qvalues)
 			throws ConstraintException {
 		int[] serviceIds = qvalues[0];
