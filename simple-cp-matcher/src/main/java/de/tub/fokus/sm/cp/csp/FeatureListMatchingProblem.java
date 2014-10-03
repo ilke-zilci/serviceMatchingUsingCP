@@ -14,6 +14,8 @@ import javax.constraints.Var;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.tub.fokus.sm.cp.model.ConstraintException;
+
 public class FeatureListMatchingProblem extends AbstractProblem {
 	int[] provided;
 	int[] required;
@@ -42,13 +44,18 @@ public class FeatureListMatchingProblem extends AbstractProblem {
 		// with the index var i can state which part of the array i want to
 		// investigate now, might help for heap problems to run the solver in
 		// smaller steps
-		final int explorer = 0, firefox = 1, chrome = 2, safari = 3, opera = 4;
-		Var indexVar = matching.variable("providedIndex", 0, 5);
+
+		// here indexVar has to cover all the values in the provided list
+
 		// int[] googleBrowsers={explorer, firefox, chrome};
+		int serviceIndexMax = provided.length - 1;
+		Var indexVar = matching.variable("providedIndex", 0, serviceIndexMax);
 
 		matching.log(matching.getVars());
 		// 1. option domain defined with min max
 		// 2. option would be domain defined with specific values in an array
+		// The domain of the query variable is the values in the int[] array
+		// required
 		Var requiredBrowsersVar = matching.variable("query", required);
 		matching.postElement(provided, indexVar, "=", requiredBrowsersVar);
 		Var[] vars = { indexVar, requiredBrowsersVar };
@@ -56,14 +63,22 @@ public class FeatureListMatchingProblem extends AbstractProblem {
 	}
 
 	public static void main(String[] args) {
+		// TODO for the BrowserIdentifier put the enum values to this array?
+		String[] browsers = { "explorer", "firefox", "chrome", "safari",
+				"opera" };
+		int[] providedBrowsers = { 1, 2, 0 };
 
-		int[] googleBrowsers = { 0, 1, 2 };
 		int[] requiredBrowsers = { 0, 2, 3 };
+
 		FeatureListMatchingProblem matchp = new FeatureListMatchingProblem(
-				googleBrowsers, requiredBrowsers);
+				providedBrowsers, requiredBrowsers);
 
 		List<Solution> solutions = matchp.execute();
-
+		for (Solution s : solutions) {
+			int matchingBIndex = providedBrowsers[s.getValue("providedIndex")];
+			System.out.println("matching provided browser value:"
+					+ matchingBIndex + " name:" + browsers[matchingBIndex]);
+		}
 	}
 
 	@Override

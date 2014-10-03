@@ -36,12 +36,12 @@ public class PostElementVariations {
 		// investigate now, might help for heap problems to run the solver in
 		// smaller steps
 		Var v1 = p.variable("M", 0, 5);
-		int[] num = { 1, 2, 3, 4, 5, 6 };
+		int[] num = { 4, 5, 6, 7, 8, 9 };
 		p.log(p.getVars());
 		// 1. option domain defined with min max
 		// 2. option would be domain defined with specific values in an array
 		Var x = p.variable("X", 1, 10);
-		p.postElement(num, v1, ">", x);
+		p.postElement(num, v1, "=", x);
 
 	}
 
@@ -93,8 +93,8 @@ public class PostElementVariations {
 	public static void main(String[] args) {
 		PostElementVariations t = new PostElementVariations();
 		// t.define();
-		// t.defineIntVar();
-		t.defineVarInt();
+		t.defineIntVar();
+		// t.defineVarInt();
 		// t.defineVarVar();
 		// t.defineMatching();
 		t.solve();
