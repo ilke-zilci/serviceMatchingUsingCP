@@ -47,13 +47,26 @@ public class PostElementVariations {
 
 	public void defineVarInt() {
 		Var indexVar = p.variable("M", 0, 1);
-		Var a = p.variable("A", 1, 10);
-		Var b = p.variable("B", 1, 10);
+		Var a = p.variable("A", 1, 5);
+		Var b = p.variable("B", 1, 5);
 		// Var c = p.variable("C",1,10);
 		// Var d = p.variable("D",1,10);
 		// Var[] vars = { a,b,c,d };
 		Var[] vars = { a, b };
-		p.postElement(vars, indexVar, "<", 3);
+		p.postElement(vars, indexVar, "<", 2);
+	}
+
+	public void defineVarIntSeperately() {
+		Var indexVar = p.variable("M", 0, 1);
+		Var a = p.variable("A", 1, 5);
+		Var b = p.variable("B", 1, 5);
+		// Var c = p.variable("C",1,10);
+		// Var d = p.variable("D",1,10);
+		// Var[] vars = { a,b,c,d };
+		Var[] varsa = { a };
+		Var[] varsb = { b };
+		p.postElement(varsa, indexVar, "<", 3);
+		p.postElement(varsb, indexVar, "<", 3);
 	}
 
 	public void defineVarVar() {
@@ -93,7 +106,7 @@ public class PostElementVariations {
 	public static void main(String[] args) {
 		PostElementVariations t = new PostElementVariations();
 		// t.define();
-		t.defineIntVar();
+		t.defineVarIntSeperately();
 		// t.defineVarInt();
 		// t.defineVarVar();
 		// t.defineMatching();
