@@ -124,11 +124,11 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		Var q3property = matching.variable("property3", q3values);
 
 		Element e = new Element(q1values, indexVar, "!=", qosdemand[0]);
-		Var violationE1 = matching.add(e).asBool().multiply(20);
+		Var violationE1 = matching.add(e).asBool().multiply(120);
 		Element e2 = new Element(q2values, indexVar, "!=", qosdemand[1]);
 		Var violationE2 = matching.add(e2).asBool().multiply(60);
 		Element e3 = new Element(q3values, indexVar, "!=", qosdemand[2]);
-		Var violationE3 = matching.add(e3).asBool().multiply(120);
+		Var violationE3 = matching.add(e3).asBool().multiply(20);
 
 		// not posting the elements resulted in serviceindex independent of the
 		// values that properties get it did not have the relation
@@ -169,21 +169,36 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 	// property
 	public void buildSimpleModelDifference(int[] qosdemand, int[][] qvalues)
 			throws ConstraintException {
+		int serviceIndexMax = 2;
 		int[] serviceIds = qvalues[0];
 		Var serviceIDs = matching.variable("serviceId", serviceIds);
+
 		int[] q1values = qvalues[1];
 		Var q1property = matching.variable("property1", q1values);
 		int[] q2values = qvalues[2];
 		Var q2property = matching.variable("property2", q2values);
 		int[] q3values = qvalues[3];
 		Var q3property = matching.variable("property3", q3values);
+		Var[] qproperties = { q1property, q2property, q3property };
+
+		int numberOfC = 3;
+		Constraint[] cArray = new Constraint[numberOfC];
+		for (int i = 0; i <= serviceIndexMax; i++) {
+			cArray[i] = matching.linear((new Linear(serviceIDs, "=",
+					serviceIds[i])).asBool(), "=", (new Linear(q1property, "=",
+					q1values[i])).asBool());
+		}
+		for (int i = 0; i < numberOfC; i++) {
+			cArray[i].post();
+		}
 
 		// if serviceId==0 then q1property must have the value q1values[0]
 		Linear certainId = new Linear(serviceIDs, "=", serviceIds[0]);
 		Linear certainProperty1 = new Linear(q1property, "=", q1values[0]);
 		Constraint c12 = matching.linear(certainId.asBool(), "=",
 				certainProperty1.asBool());
-		// if serviceId==1 then q1property must have the value q1values[1]
+		// if serviceId==1 then q1property must
+		// have the value q1values[1]
 		Linear certainId2 = new Linear(serviceIDs, "=", serviceIds[1]);
 		Linear certainProperty2 = new Linear(q1property, "=", q1values[1]);
 		Constraint c22 = matching.linear(certainId2.asBool(), "=",
@@ -193,7 +208,6 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		Linear certainProperty3 = new Linear(q1property, "=", q1values[2]);
 		Constraint c32 = matching.linear(certainId3.asBool(), "=",
 				certainProperty3.asBool());
-
 		c12.post();
 		c22.post();
 		c32.post();
@@ -231,13 +245,13 @@ public class SolveAsMatrixEqualProblem extends AbstractProblem {
 		int[] qosdemand = { 2, 100, 96 };
 		int[] q1values = { 5, 4, 3 };
 		int[] q2values = { 100, 100, 100 };
-		int[] q3values = { 96, 96, 96 };
+		int[] q3values = { 96, 96, 97 };
 		int[][] qvalues = { serviceIds, q1values, q2values, q3values };
 		// this happens in QoSRequest evaluateMatrix
 		SolveAsMatrixEqualProblem matchp = new SolveAsMatrixEqualProblem(
 				qosdemand, qvalues);
 
-		matchp.buildModelSoftDifference(qosdemand, qvalues);
+		matchp.buildSimpleModelDifference(qosdemand, qvalues);
 
 		// List<Solution> solutions = matchp.execute();
 		// int noOfSolutions;

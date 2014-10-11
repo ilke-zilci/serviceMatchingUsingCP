@@ -97,6 +97,10 @@ public class SetMatchingProblem extends AbstractProblem {
 
 	}
 
+	public static void main(String[] args) {
+
+	}
+
 	@Override
 	public void configureSearch() {
 		// TODO Auto-generated method stub

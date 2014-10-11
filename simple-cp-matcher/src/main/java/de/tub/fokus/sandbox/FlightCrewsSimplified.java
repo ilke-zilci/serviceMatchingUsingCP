@@ -47,8 +47,8 @@ public class FlightCrewsSimplified {
 			}
 		}
 	}
-	
-	public void findandLogAllSolutions(VarSet[] setVars, Solver solver){
+
+	public void findandLogAllSolutions(VarSet[] setVars, Solver solver) {
 		solver.logStats();
 		// solver.setTimeLimit(milliseconds); // mills
 		SearchStrategy strategy = solver.getSearchStrategy();
@@ -68,13 +68,12 @@ public class FlightCrewsSimplified {
 				System.out.println(setVars[i].toString() + "\n\n");
 			}
 		}
-		
+
 		Solution[] array = new Solution[solutions.size()];
 		for (int i = 0; i < array.length; i++) {
 			array[i] = solutions.get(i);
 		}
-		
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -104,13 +103,21 @@ public class FlightCrewsSimplified {
 			// int[]{Bill}); //("intersection", Stewards.intersection(French));
 
 			// csp.post(Stewards.getCardinality(),">",3);
-			//csp.post(Stewards.intersection(French).getCardinality(), "<", 1);
-			// Stewards.intersection(French).setEmpty(true);
+
 			// Hostesses.intersection(German).setEmpty(true);
 			// csp.post(Hostesses.getCardinality(),">",2);
 			// Spanish.intersection(German).setEmpty(true);
-			 csp.post(French.getCardinality(),"<",2);
+
 			// csp.post(German.getCardinality(),">",2);
+
+			/*
+			 * used in the documentation Constraint on Set Cardinality
+			 * csp.post(French.getCardinality(), "<", 2);
+			 */
+
+			/* used in documentation constraint on intersection */
+			csp.post(Stewards.intersection(French).getCardinality(), "<", 1);
+			// Stewards.intersection(French).setEmpty(true);
 
 			VarSet[] setVars = new VarSet[] { Stewards, French };
 			for (int i = 0; i < setVars.length; i++) {
@@ -133,12 +140,12 @@ public class FlightCrewsSimplified {
 				System.out.println("the array of VarSets: \n");
 				for (int i = 0; i < setVars.length; i++) {
 					System.out.println("set name: " + setVars[i].getName());
-					System.out.println("set cardinality"
+					System.out.println("set cardinality: "
 							+ setVars[i].getCardinality());
 					System.out.println(setVars[i].toString() + "\n\n");
 				}
 			}
-			
+
 			Solution[] array = new Solution[solutions.size()];
 			for (int i = 0; i < array.length; i++) {
 				array[i] = solutions.get(i);

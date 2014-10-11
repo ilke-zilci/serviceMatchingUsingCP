@@ -27,6 +27,7 @@ public abstract class TresorQoSSpec implements QoSSpec {
 	// TODO this is not easy to read , improve!!
 	public void applyFailRankingRule() {
 		evaluators.get(1).evaluate(this);
+		// new FailEvaluator().evaluate(this);
 	}
 
 	public void applyExactRankingRule() {
@@ -55,6 +56,7 @@ public abstract class TresorQoSSpec implements QoSSpec {
 		return ranking;
 	}
 
+	// TODO why is this here public, and not somehow set inside the evaluator
 	@Override
 	public void setMatchingDegree(MatchingDegree m) {
 		matchingDegree = m;
