@@ -14,8 +14,8 @@ import de.tub.fokus.sm.cp.model.QoSMatchmaker;
 import de.tub.fokus.sm.cp.model.QoSRequest;
 import de.tub.fokus.sm.cp.model.ServiceDescription;
 import de.tub.fokus.sm.cp.model.ServiceRepository;
-import de.tub.fokus.sm.cp.model.constraints.FeatureListConstraint;
 import de.tub.fokus.sm.cp.model.constraints.QoSConstraint;
+import de.tub.fokus.sm.cp.model.constraints.impl.FeatureListConstraint;
 import de.tub.fokus.sm.cp.model.specs.FeatureListSpec;
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 

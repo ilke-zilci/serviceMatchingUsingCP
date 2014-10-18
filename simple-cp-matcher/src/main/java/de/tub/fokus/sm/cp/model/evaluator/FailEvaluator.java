@@ -1,15 +1,14 @@
-package de.tub.fokus.sm.cp.model;
+package de.tub.fokus.sm.cp.model.evaluator;
 
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 import de.tub.fokus.sm.cp.model.specs.QoSSpec.MatchingDegree;
 
-public class NoSpecEvaluator implements Evaluator {
+public class FailEvaluator implements Evaluator {
 
 	@Override
 	public void evaluate(QoSSpec qoSSpec) {
-		qoSSpec.setRanking(0);
-		// TODO differentiate from the known but failing services?
 		qoSSpec.setMatchingDegree(MatchingDegree.FAIL);
-	}
+		qoSSpec.setRanking(0);
 
+	}
 }

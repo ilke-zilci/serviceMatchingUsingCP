@@ -14,8 +14,8 @@ import com.google.common.primitives.Ints;
 
 import de.tub.fokus.sm.cp.csp.SolveAsMatrixEqualProblem;
 import de.tub.fokus.sm.cp.model.constraints.AggregatableConstraint;
-import de.tub.fokus.sm.cp.model.constraints.DiscreteNumericConstraint;
 import de.tub.fokus.sm.cp.model.constraints.QoSConstraint;
+import de.tub.fokus.sm.cp.model.constraints.impl.DiscreteNumericConstraint;
 import de.tub.fokus.sm.cp.model.specs.DiscreteNumericSpec;
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 

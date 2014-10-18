@@ -1,4 +1,4 @@
-package de.tub.fokus.sm.cp.model.constraints;
+package de.tub.fokus.sm.cp.model.constraints.impl;
 
 import java.util.ArrayList;
 import java.util.List;

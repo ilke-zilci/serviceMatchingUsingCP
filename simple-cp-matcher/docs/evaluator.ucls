@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <interface id="1" language="java" name="de.tub.fokus.sm.cp.model.Evaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/Evaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="1" language="java" name="de.tub.fokus.sm.cp.model.evaluator.Evaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/Evaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="79" width="141" x="702" y="336"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +11,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="2" language="java" name="de.tub.fokus.sm.cp.model.ExactEvaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/ExactEvaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="de.tub.fokus.sm.cp.model.evaluator.ExactEvaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/ExactEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="97" width="141" x="249" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -19,8 +21,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="de.tub.fokus.sm.cp.model.FailEvaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/FailEvaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="de.tub.fokus.sm.cp.model.evaluator.FailEvaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/FailEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="97" width="141" x="430" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -28,8 +31,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="de.tub.fokus.sm.cp.model.NoSpecEvaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/NoSpecEvaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="de.tub.fokus.sm.cp.model.evaluator.NoSpecEvaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/NoSpecEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="97" width="141" x="611" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -37,8 +41,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="de.tub.fokus.sm.cp.model.PartialEvaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/PartialEvaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="de.tub.fokus.sm.cp.model.evaluator.PartialEvaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/PartialEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="928" y="229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -46,8 +51,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="de.tub.fokus.sm.cp.model.SuperEvaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/SuperEvaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="de.tub.fokus.sm.cp.model.evaluator.SuperEvaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/SuperEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="97" width="141" x="792" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -65,8 +71,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="de.tub.fokus.sm.cp.model.constraints.FeatureListConstraint" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/FeatureListConstraint.java" binary="false" 
+  <class id="8" language="java" name="de.tub.fokus.sm.cp.model.constraints.impl.FeatureListConstraint" 
+    project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/impl/FeatureListConstraint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="672" y="521"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -96,21 +103,21 @@
     </display>  
   </class>  
   <generalization id="11">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <realization id="12">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="13">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <generalization id="14">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="13">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="14">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
   <association id="15">    
     <end type="SOURCE" refId="7" navigable="false">      
       <attribute id="16" name="evaluators"/>      
@@ -119,16 +126,16 @@
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="18">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
   <realization id="19">    
-    <end type="SOURCE" refId="3"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
   <realization id="20">    
-    <end type="SOURCE" refId="4"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

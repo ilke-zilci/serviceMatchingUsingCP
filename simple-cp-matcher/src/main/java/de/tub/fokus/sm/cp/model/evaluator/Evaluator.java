@@ -1,4 +1,4 @@
-package de.tub.fokus.sm.cp.model;
+package de.tub.fokus.sm.cp.model.evaluator;
 
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 

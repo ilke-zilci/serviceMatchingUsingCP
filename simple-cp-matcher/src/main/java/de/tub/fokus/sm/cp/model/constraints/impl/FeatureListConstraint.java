@@ -1,4 +1,4 @@
-package de.tub.fokus.sm.cp.model.constraints;
+package de.tub.fokus.sm.cp.model.constraints.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,12 +9,13 @@ import javax.constraints.Var;
 
 import de.tub.fokus.sm.cp.csp.FeatureListMatchingProblem;
 import de.tub.fokus.sm.cp.model.ConstraintException;
-import de.tub.fokus.sm.cp.model.Evaluator;
-import de.tub.fokus.sm.cp.model.ExactEvaluator;
-import de.tub.fokus.sm.cp.model.FailEvaluator;
-import de.tub.fokus.sm.cp.model.NoSpecEvaluator;
-import de.tub.fokus.sm.cp.model.PartialEvaluator;
-import de.tub.fokus.sm.cp.model.SuperEvaluator;
+import de.tub.fokus.sm.cp.model.constraints.QoSConstraint;
+import de.tub.fokus.sm.cp.model.evaluator.Evaluator;
+import de.tub.fokus.sm.cp.model.evaluator.ExactEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.FailEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.NoSpecEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.PartialEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.SuperEvaluator;
 import de.tub.fokus.sm.cp.model.specs.FeatureListSpec;
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 

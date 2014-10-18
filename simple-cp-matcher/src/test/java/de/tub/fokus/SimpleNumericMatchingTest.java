@@ -14,9 +14,9 @@ import de.tub.fokus.sm.cp.model.QoSRequest;
 import de.tub.fokus.sm.cp.model.ServiceDescription;
 import de.tub.fokus.sm.cp.model.ServiceRepository;
 import de.tub.fokus.sm.cp.model.constraints.AggregatableConstraint;
-import de.tub.fokus.sm.cp.model.constraints.DiscreteNumericConstraint;
-import de.tub.fokus.sm.cp.model.constraints.FeatureListConstraint;
 import de.tub.fokus.sm.cp.model.constraints.QoSConstraint;
+import de.tub.fokus.sm.cp.model.constraints.impl.DiscreteNumericConstraint;
+import de.tub.fokus.sm.cp.model.constraints.impl.FeatureListConstraint;
 import de.tub.fokus.sm.cp.model.specs.DiscreteNumericSpec;
 import de.tub.fokus.sm.cp.model.specs.QoSSpec;
 

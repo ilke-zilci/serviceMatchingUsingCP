@@ -11,10 +11,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="2" language="java" name="de.tub.fokus.sm.cp.model.constraints.DiscreteNumericConstraint" 
+  <class id="2" language="java" name="de.tub.fokus.sm.cp.model.constraints.impl.DiscreteNumericConstraint" 
     project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/DiscreteNumericConstraint.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/impl/DiscreteNumericConstraint.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="512" y="687"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -33,8 +33,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="de.tub.fokus.sm.cp.model.constraints.TresorQoSConstraint" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/TresorQoSConstraint.java" binary="false" 
+  <class id="4" language="java" name="de.tub.fokus.sm.cp.model.constraints.impl.TresorQoSConstraint" 
+    project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/impl/TresorQoSConstraint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="514" y="481"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -43,8 +44,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="de.tub.fokus.sm.cp.model.constraints.FeatureListConstraint" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/FeatureListConstraint.java" binary="false" 
+  <class id="5" language="java" name="de.tub.fokus.sm.cp.model.constraints.impl.FeatureListConstraint" 
+    project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/constraints/impl/FeatureListConstraint.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1031" y="751"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -129,8 +131,9 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <interface id="14" language="java" name="de.tub.fokus.sm.cp.model.Evaluator" project="cp-matcher" 
-    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/Evaluator.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="14" language="java" name="de.tub.fokus.sm.cp.model.evaluator.Evaluator" project="cp-matcher" 
+    file="/cp-matcher/src/main/java/de/tub/fokus/sm/cp/model/evaluator/Evaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="268" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -138,80 +141,80 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <association id="15">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="16" name="evaluators"/>      
-      <multiplicity id="17" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
+  <realization id="15">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <association id="16">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="19" name="request"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
+      <attribute id="17" name="request"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="21">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="12"/>  
+  <realization id="19">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <association id="22">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="23" name="repository"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="25">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </nesting>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="9"/>    
+  <generalization id="20">    
+    <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <association id="27">    
+  <association id="21">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="22" name="evaluators"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="24">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="25">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="28" name="ownCSPConstraints"/>      
-      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
+      <attribute id="26" name="ownCSPConstraints"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="30">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <generalization id="31">    
+  <generalization id="28">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="29">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="30" name="repository"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <realization id="32">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="33">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="34" name="allInOneCSPConstraints"/>      
-      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="37">    
+  <nesting id="33">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <association id="34">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="38" name="matchingDegree"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+      <attribute id="35" name="matchingDegree"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="38" name="allInOneCSPConstraints"/>      
+      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

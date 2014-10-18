@@ -3,12 +3,12 @@ package de.tub.fokus.sm.cp.model.specs;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.tub.fokus.sm.cp.model.Evaluator;
-import de.tub.fokus.sm.cp.model.ExactEvaluator;
-import de.tub.fokus.sm.cp.model.FailEvaluator;
-import de.tub.fokus.sm.cp.model.NoSpecEvaluator;
-import de.tub.fokus.sm.cp.model.PartialEvaluator;
-import de.tub.fokus.sm.cp.model.SuperEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.Evaluator;
+import de.tub.fokus.sm.cp.model.evaluator.ExactEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.FailEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.NoSpecEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.PartialEvaluator;
+import de.tub.fokus.sm.cp.model.evaluator.SuperEvaluator;
 
 public abstract class TresorQoSSpec implements QoSSpec {
 	protected int ranking;
