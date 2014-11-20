@@ -73,7 +73,7 @@ public class QoSMatchmakerUnitTest {
 	public void testEvaluatePartialMatch() throws ConstraintException {
 
 		// fill in the hashmap
-		// TODO it'd be better reading from a file or the discovery
+		// TODO it'd be better to read from a file or the discovery
 		// component does the reading and converts to QoSSpec
 
 		// -----------------------[initialize service description]----------
