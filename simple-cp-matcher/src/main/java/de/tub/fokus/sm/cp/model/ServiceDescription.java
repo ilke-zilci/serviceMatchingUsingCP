@@ -43,7 +43,7 @@ public class ServiceDescription {
 					+ ", property itself: " + entry.getValue().toString()
 					+ " ;";
 		}
-		toreturn += "ranking: " + calculateRanking();
+		toreturn += "scores: " + calculateRanking();
 		return toreturn;
 	}
 

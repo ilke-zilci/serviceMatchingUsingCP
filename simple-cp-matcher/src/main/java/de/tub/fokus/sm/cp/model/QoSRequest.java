@@ -116,7 +116,9 @@ public class QoSRequest {
 				.size()];
 		Iterator<AggregatableConstraint> constraintIterator = allInOneCSPConstraints
 				.values().iterator();
-		for (int i = 0; i < allInOneCSPConstraints.size(); i++) {
+		int[] serviceIds = { 0, 1, 2 };
+		qvaluesMatrix[0]=serviceIds;
+		for (int i = 1; i < allInOneCSPConstraints.size(); i++) {
 			AggregatableConstraint a = constraintIterator.next();
 			qvaluesMatrix[i] = Ints.toArray(a.getSpecifications());
 		}
