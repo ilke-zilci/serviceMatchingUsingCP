@@ -2,11 +2,7 @@
 Service requesters with limited technical knowledge should be able to compare services based
 on their QoS requirements in business-oriented cloud service marketplaces. Existing service
 matching approaches focus on QoS requirements as discrete numeric values and intervals,
-while providing the results with varying matching degrees. Comprehensive analysis of QoS
-properties in service descriptions shows that in related work QoS parameters as lists are not
-included and that the tendencies of QoS properties are not explicitly handled. This thesis de-
-velops a concept for a service matcher which contributes to existing approaches by addressing
-these issues using constraint solvers. 
+while providing the results with varying matching degrees. This project develops a concept for a service matcher and the code is the prototype implementation of the concept.
 
 This prototype uses JSR-331(Java Constraint Programming API) with Choco Solver 2 in the backend.
 
