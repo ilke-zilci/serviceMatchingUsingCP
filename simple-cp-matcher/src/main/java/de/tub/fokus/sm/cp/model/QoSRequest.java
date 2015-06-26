@@ -1,6 +1,7 @@
 package de.tub.fokus.sm.cp.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -30,12 +31,22 @@ public class QoSRequest {
 	 */
 	private Map<String, QoSConstraint> ownCSPConstraints;
 
+	public Map<String, QoSConstraint> getOwnCSPConstraints() {
+		 if (ownCSPConstraints == null){
+			 ownCSPConstraints= new HashMap<String, QoSConstraint>();
+		    }
+		return ownCSPConstraints;
+	}
+
 	// TODO think: the information which specifications go into which list must
 	// be here ,
 	// instead of giving the request the ready list or not.
 	private Map<String, AggregatableConstraint> allInOneCSPConstraints;
 
 	public Map<String, AggregatableConstraint> getAllInOneCSPConstraints() {
+	    if (allInOneCSPConstraints == null){
+	    	allInOneCSPConstraints= new HashMap<String, AggregatableConstraint>();
+	    }
 		return allInOneCSPConstraints;
 	}
 
@@ -52,9 +63,9 @@ public class QoSRequest {
 	public void evaluate(List<ServiceDescription> serviceDescriptions) {
 
 		// evaluate QosSpecifications which need one CSP for each of them
-		if (ownCSPConstraints.isEmpty())
+		if (getOwnCSPConstraints().isEmpty())
 			return;
-		for (Map.Entry<String, QoSConstraint> entry : ownCSPConstraints
+		for (Map.Entry<String, QoSConstraint> entry : getOwnCSPConstraints()
 				.entrySet()) {
 			String constraintName = entry.getKey();
 			QoSConstraint constraint = entry.getValue();
@@ -91,8 +102,11 @@ public class QoSRequest {
 			throws ConstraintException {
 		// for each Qi add service specification's value to the list, to form
 		// q1values, q2values ...
-		for (Map.Entry<String, AggregatableConstraint> entry : allInOneCSPConstraints
-				.entrySet()) {
+		if (getAllInOneCSPConstraints().isEmpty())
+			return;
+		
+		for (Map.Entry<String, AggregatableConstraint> entry : getAllInOneCSPConstraints
+				().entrySet()) {
 			String constraintName = entry.getKey();
 			AggregatableConstraint constraint = entry.getValue();
 			for (ServiceDescription sd : serviceDescriptions) {
