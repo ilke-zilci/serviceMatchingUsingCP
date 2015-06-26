@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Jun 09 18:28:40 CEST 2015
+jsr331-spec-1.0.jar>=
+jsr331-spec-1.0.pom>=
