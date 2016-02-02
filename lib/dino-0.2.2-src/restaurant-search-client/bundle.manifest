@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ClassPath: .
+Bundle-Version: 1.0.0
+Bundle-Name: restaurant-search-client
+Bundle-Activator: uk.ac.ucl.cs.sse.dino.client.restaurant.impl.Activat
+ or
+Bundle-ManifestVersion: 2
+Import-Package: org.osgi.framework, org.osgi.util.tracker, uk.ac.ucl.c
+ s.sse.dino, javax.swing, javax.swing.table, uk.ac.ucl.cs.sse.dino.imp
+ l, uk.ac.ucl.cs.sse.dino.remote, javax.swing.event, org.xml.sax, org.
+ xml.sax.helpers, javax.xml.parsers, javax.imageio
+Bundle-SymbolicName: restaurantSearchClient
+

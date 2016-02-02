@@ -1,0 +1,9 @@
+<QosDoc>
+	<and>
+		<qos name="responseTime" minVal="100" maxVal="7000" confidence="0.9"/>
+		<qos name="requestFrequency" minVal="3000" maxVal="3000" confidence="0.97"/>
+		<qos name="resolution" minVal="10" maxVal="20" confidence="0.99"/>
+		<qos name="availability" minVal="95" maxVal="100" confidence="0.8"/>
+		<qos name="coverage" enum="UK" confidence="1"/>
+	</and>
+</QosDoc>

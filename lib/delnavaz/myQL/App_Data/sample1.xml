@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<QoSConstraints>
+<QoSConstraint>
+  <name>price</name>
+  <type>numeric</type>
+  <unit>US dollar</unit>
+  <tendency>negative</tendency>
+  <preference>2</preference>
+  <relaxation>0</relaxation>
+  <weight>0.3</weight>
+  <values type="range" >
+    <from>100</from>
+    <to>100</to>
+  </values>
+</QoSConstraint>
+<QoSConstraint>
+  <name>reliability</name>
+  <type>fuzzy</type>
+  <unit>%</unit>
+  <tendency>positive</tendency>
+  <preference>3</preference>
+  <relaxation>1</relaxation>
+  <weight>0.1</weight>
+  <values type="fuzzy" >
+    <from>good</from>
+    <to>good</to>
+  </values>
+</QoSConstraint>
+<QoSConstraint>
+    <name>responsetime</name>
+    <type>numeric</type>
+    <unit>msec</unit>
+    <tendency>negative</tendency>
+    <preference>2</preference>
+    <relaxation>1</relaxation>
+    <weight>0.15</weight>
+    <values type="range" >
+      <from>2</from>
+      <to>2</to>
+    </values>
+</QoSConstraint>
+  <QoSConstraint>
+    <name>authentication</name>
+    <type>boolean</type>
+    <unit></unit>
+    <tendency>neutral</tendency>
+    <preference>2</preference>
+    <relaxation>1</relaxation>
+    <weight>0.15</weight>
+    <values type="single" >
+      <from>true</from>
+      <to>true</to>
+    </values>
+  </QoSConstraint>
+</QoSConstraints>

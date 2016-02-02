@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE uridef [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.1/Service.owl">
+  <!ENTITY profile "http://www.daml.org/services/owl-s/1.1/Profile.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.1/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.1/Grounding.owl">
+  <!ENTITY geo "http://www.cs.ucl.ac.uk/research/dino/owls/geography.owl">
+  <!ENTITY groundingWSDL "http://localhost:8080/axis/services/GPSService?wsdl">
+  <!ENTITY groundingNS "http://www.cs.ucl.ac.uk/research/dino/GPS">
+  <!ENTITY retns "http://impl.gps.dino.sse.cs.ucl.ac.uk">
+  <!ENTITY zipcode "http://www.daml.org/2001/10/html/zipcode-ont">
+]>
+<rdf:RDF
+  xmlns:rdf="&rdf;#" 
+  xmlns:rdfs="&rdfs;#" 
+  xmlns:owl="&owl;#" 
+  xmlns:xsd="&xsd;#" 
+  xmlns:service="&service;#" 
+  xmlns:profile="&profile;#" 
+  xmlns:process="&process;#" 
+  xmlns:grounding="&grounding;#" 
+  xmlns:geo="&geo;#"
+  xml:base="http://www.cs.ucl.ac.uk/research/dino/capdoc/GPS.owl"
+  xmlns:zipcode="&zipcode;#"
+>
+
+<owl:Ontology rdf:about="">
+	<owl:imports rdf:resource="&service;"/>
+	<owl:imports rdf:resource="&profile;"/>
+	<owl:imports rdf:resource="&process;"/>
+	<owl:imports rdf:resource="&grounding;"/>
+	<owl:imports rdf:resource="&geo;"/>
+</owl:Ontology>
+
+<service:Service rdf:ID="GPSService">
+	<service:presents rdf:resource="#GPSProfile"/>
+
+	<service:describedBy rdf:resource="#GPSProcess"/>
+
+	<service:supports rdf:resource="#GPSGrounding"/>
+</service:Service>
+
+<profile:Profile rdf:ID="GPSProfile">
+	<service:isPresentedBy rdf:resource="#GPSService"/>
+
+	<profile:serviceName xml:lang="en">GPS locator service</profile:serviceName>
+	<profile:textDescription xml:lang="en">Use GPS to determine LatLong.</profile:textDescription>
+
+	<profile:hasOutput rdf:resource="#LatLong"/>
+</profile:Profile>
+
+<process:AtomicProcess rdf:ID="GPSProcess">
+	<service:describes rdf:resource="#GPSService"/>
+
+	<process:hasOutput rdf:resource="#LatLong"/>
+</process:AtomicProcess>
+
+<process:Output rdf:ID="LatLong">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&geo;#LatLon</process:parameterType>
+	<rdfs:label>Latitude &amp; Longitude</rdfs:label>
+</process:Output>
+
+<!-- Grounding description -->
+<grounding:WsdlGrounding rdf:ID="GPSGrounding">
+	<service:supportedBy rdf:resource="#GPSService"/>
+	<grounding:hasAtomicProcessGrounding rdf:resource="#GPSProcessGrounding"/>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:ID="GPSProcessGrounding">
+	<grounding:owlsProcess rdf:resource="#GPSProcess"/>
+	<grounding:wsdlDocument rdf:datatype="&xsd;#anyURI">&groundingWSDL;</grounding:wsdlDocument>
+	<grounding:wsdlOperation>
+		<grounding:WsdlOperationRef>
+			<grounding:portType rdf:datatype="&xsd;#anyURI">&groundingWSDL;#GPSInterface</grounding:portType>
+			<grounding:operation rdf:datatype="&xsd;#anyURI">&groundingWSDL;#getPosition</grounding:operation>
+		</grounding:WsdlOperationRef>
+	</grounding:wsdlOperation>
+
+	<grounding:wsdlOutputMessage rdf:datatype="&xsd;#anyURI">&groundingNS;#getPositionResponse</grounding:wsdlOutputMessage>
+	<grounding:wsdlOutput>
+		<grounding:WsdlOutputMessageMap>
+			<grounding:owlsParameter rdf:resource="#LatLong"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&retns;#getPositionReturn</grounding:wsdlMessagePart>
+			<grounding:xsltTransformationString>
+				<![CDATA[
+				<?xml version="1.0" encoding="UTF-8"?>
+				<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+					<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+					<xsl:template match="/" xmlns:ns1="http://impl.gps.dino.sse.cs.ucl.ac.uk">
+						<xsl:variable name="latDegrees" select="//ns1:latitude"/>
+						<xsl:variable name="lonDegrees" select="//ns1:longitude"/>
+						<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+							xmlns:geo="http://www.cs.ucl.ac.uk/research/dino/owls/geography.owl#">
+							<geo:LatLon>
+								<geo:latitude><xsl:value-of select="$latDegrees"/></geo:latitude>
+								<geo:longitude><xsl:value-of select="$lonDegrees"/></geo:longitude>
+							</geo:LatLon>
+						</rdf:RDF>
+					</xsl:template>
+				</xsl:stylesheet>
+				]]>
+			</grounding:xsltTransformationString>
+		</grounding:WsdlOutputMessageMap>
+	</grounding:wsdlOutput>
+</grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE uridef [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.1/Service.owl">
+  <!ENTITY profile "http://www.daml.org/services/owl-s/1.1/Profile.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.1/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.1/Grounding.owl">
+  <!ENTITY restaurant "http://www.cs.ucl.ac.uk/research/dino/reqdoc/restaurant.owl">
+  <!ENTITY factbook "http://www.daml.org/2003/09/factbook/factbook-ont">
+  <!ENTITY groundingWSDL "http://bozenka.cs.ucl.ac.uk:8080/axis/services/LastMinuteSearchService?wsdl">
+  <!ENTITY groundingNS "http://www.cs.ucl.ac.uk/staff/A.Dingwall-Smith/LastMinuteSearch">
+  <!ENTITY retns "http://impl.lastminute.dino.sse.cs.ucl.ac.uk">
+]>
+<rdf:RDF
+  xmlns:rdf="&rdf;#" 
+  xmlns:rdfs="&rdfs;#" 
+  xmlns:owl="&owl;#" 
+  xmlns:xsd="&xsd;#" 
+  xmlns:service="&service;#" 
+  xmlns:profile="&profile;#" 
+  xmlns:process="&process;#" 
+  xmlns:grounding="&grounding;#" 
+  xmlns:factbook="&factbook;#"
+  xmlns:restaurant="&restaurant;#"
+  xml:base="http://www.cs.ucl.ac.uk/research/dino/capdoc/LastMinute.owl"
+>
+
+<owl:Ontology rdf:about="">
+	<owl:imports rdf:resource="&service;"/>
+	<owl:imports rdf:resource="&profile;"/>
+	<owl:imports rdf:resource="&process;"/>
+	<owl:imports rdf:resource="&grounding;"/>
+</owl:Ontology>
+
+<service:Service rdf:ID="RestaurantSearchService">
+	<service:presents rdf:resource="#RestaurantSearchProfile"/>
+
+	<service:describedBy rdf:resource="#RestaurantSearchProcess"/>
+
+	<service:supports rdf:resource="#RestaurantSearchGrounding"/>
+</service:Service>
+
+<restaurant:RestaurantSearchService rdf:ID="RestaurantSearchProfile">
+	<service:isPresentedBy rdf:resource="#RestaurantSearchService"/>
+
+	<profile:serviceName xml:lang="en">Search for restaurants</profile:serviceName>
+	<profile:textDescription xml:lang="en">Search for restaurants with available tables.</profile:textDescription>
+
+	<profile:hasInput rdf:resource="#day"/>
+	<profile:hasInput rdf:resource="#month"/>
+	<profile:hasInput rdf:resource="#year"/>
+	<profile:hasInput rdf:resource="#meal"/>
+	<profile:hasInput rdf:resource="#cityName"/>
+	<profile:hasInput rdf:resource="#cuisine"/>
+	<profile:hasInput rdf:resource="#numberOfPeople"/>
+	<profile:hasOutput rdf:resource="#restaurantList"/>
+</restaurant:RestaurantSearchService>
+
+<process:AtomicProcess rdf:ID="RestaurantSearchProcess">
+	<service:describes rdf:resource="#RestaurantSearchService"/>
+
+	<process:hasInput rdf:resource="#day"/>
+	<process:hasInput rdf:resource="#month"/>
+	<process:hasInput rdf:resource="#year"/>
+	<process:hasInput rdf:resource="#meal"/>
+	<process:hasInput rdf:resource="#cityName"/>
+	<process:hasInput rdf:resource="#cuisine"/>
+	<process:hasInput rdf:resource="#numberOfPeople"/>
+	<process:hasOutput rdf:resource="#restaurantList"/>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="day">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="month">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="year">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="meal">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="cityName">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="cuisine">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Input>
+<process:Input rdf:ID="numberOfPeople">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#integer</process:parameterType>
+</process:Input>
+
+<process:Output rdf:ID="restaurantList">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&rdf;#List</process:parameterType>
+</process:Output>
+
+
+
+<grounding:WsdlGrounding rdf:ID="RestaurantSearchGrounding">
+	<service:supportedBy rdf:resource="#RestaurantSearchService"/>
+	<grounding:hasAtomicProcessGrounding rdf:resource="#RestaurantSearchProcessGrounding"/>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:ID="RestaurantSearchProcessGrounding">
+	<grounding:owlsProcess rdf:resource="#RestaurantSearchProcess"/>
+	<grounding:wsdlDocument rdf:datatype="&xsd;#anyURI">&groundingWSDL;</grounding:wsdlDocument>
+	<grounding:wsdlOperation>
+		<grounding:WsdlOperationRef>
+			<grounding:portType rdf:datatype="&xsd;#anyURI">&groundingWSDL;#RestaurantSearchInterface</grounding:portType>
+			<grounding:operation rdf:datatype="&xsd;#anyURI">&groundingWSDL;#searchForRestaurant</grounding:operation>
+		</grounding:WsdlOperationRef>
+	</grounding:wsdlOperation>
+
+	<grounding:wsdlInputMessage rdf:datatype="&xsd;#anyURI">&groundingWSDL;#searchForRestaurantRequest</grounding:wsdlInputMessage>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#day"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#day</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#month"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#month</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#year"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#year</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#meal"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#session</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#cityName"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#location</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#cuisine"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#foodType</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#numberOfPeople"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#numberOfPeople</grounding:wsdlMessagePart>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+
+	<grounding:wsdlOutputMessage rdf:datatype="&xsd;#anyURI">&groundingNS;#searchForRestaurantResponse</grounding:wsdlOutputMessage>
+	<grounding:wsdlOutput>
+		<grounding:WsdlOutputMessageMap>
+			<grounding:owlsParameter rdf:resource="#restaurantList"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&retns;#searchForRestaurantReturn</grounding:wsdlMessagePart>
+			<grounding:xsltTransformationString>
+				<![CDATA[
+				<?xml version="1.0" encoding="UTF-8"?>
+				<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+					xmlns:ns1="http://impl.lastminute.dino.sse.cs.ucl.ac.uk"
+					xmlns:restaurant="http://www.cs.ucl.ac.uk/research/dino/reqdoc/restaurant.owl#"
+					xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+					<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+					<xsl:template match="/">
+						<rdf:RDF>
+							<rdf:List>
+								<xsl:apply-templates mode="references"/>
+							</rdf:List>
+							<xsl:apply-templates mode="nodes"/>
+						</rdf:RDF>
+					</xsl:template>
+
+					<xsl:template match="//ns1:restaurants/ns1:restaurants" mode="references">
+						<xsl:variable name="id" select="position()"/>
+						<restaurant:Restaurant rdf:nodeID='R{$id}'/>
+					</xsl:template>
+
+					<xsl:template match="//ns1:restaurants/ns1:restaurants" mode="nodes">
+						<xsl:variable name="id" select="position()"/>
+						<rdf:Description rdf:nodeID='R{$id}'>
+							<rdf:type
+								rdf:resource='http://www.cs.ucl.ac.uk/research/dino/reqdoc/restaurant.owl#Restaurant'/>
+					                <restaurant:name><xsl:value-of select="./ns1:name"/></restaurant:name>
+							<restaurant:postcode><xsl:value-of select="./ns1:postcode"/></restaurant:postcode>
+							<restaurant:foodtype><xsl:value-of select="./ns1:foodType"/></restaurant:foodtype>
+							<restaurant:minPrice><xsl:value-of select="./ns1:minPrice"/></restaurant:minPrice>
+							<restaurant:maxPrice><xsl:value-of select="./ns1:maxPrice"/></restaurant:maxPrice>
+						</rdf:Description>
+					</xsl:template>
+				</xsl:stylesheet>
+				]]>
+			</grounding:xsltTransformationString>
+		</grounding:WsdlOutputMessageMap>
+	</grounding:wsdlOutput>
+</grounding:WsdlAtomicProcessGrounding>
+
+
+
+
+</rdf:RDF>

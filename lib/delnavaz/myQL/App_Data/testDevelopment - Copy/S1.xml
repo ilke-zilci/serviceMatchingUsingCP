@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<QoSConstraints>
+  <QoSConstraint>
+    <name>response time</name>
+    <values>
+      <from>104.5</from>
+      <to>104.5</to>
+    </values>
+    <unit>msec</unit>
+    <type>range</type>
+    <tendency>negative</tendency>
+    <preference>1</preference>
+    <relaxation>0</relaxation>
+    <weight>1.1</weight>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>availability</name>
+    <values>
+      <from>86</from>
+      <to>86</to>
+    </values>
+    <unit>%</unit>
+    <type>range</type>
+    <tendency>positive</tendency>
+    <preference>1</preference>
+    <relaxation>0</relaxation>
+    <weight>0.1</weight>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>latency</name>
+    <values>
+      <from>2</from>
+      <to>2</to>
+    </values>
+    <unit>msec</unit>
+    <type>range</type>
+    <tendency>negative</tendency>
+    <preference>1</preference>
+    <relaxation>0</relaxation>
+    <weight>0.1</weight>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>throughput</name>
+    <values>
+      <from>23.5</from>
+      <to>23.5</to>
+    </values>
+    <unit>bps</unit>
+    <type>range</type>
+    <tendency>positive</tendency>
+    <preference>1</preference>
+    <relaxation>0</relaxation>
+    <weight>0.1</weight>
+  </QoSConstraint>
+</QoSConstraints>

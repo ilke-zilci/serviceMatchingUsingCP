@@ -1,0 +1,6 @@
+<QosDoc>
+	<and>
+		<qos name="responseTime" minVal="5000" maxVal="8000" confidence="0.9"/>
+		<qos name="requestFrequency" minVal="1000" maxVal="1000" confidence="0.97"/>
+	</and>
+</QosDoc>

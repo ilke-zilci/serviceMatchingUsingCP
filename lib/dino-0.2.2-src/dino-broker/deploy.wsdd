@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DinoBrokerService WSDL service -->
+
+  <service name="DinoBrokerService" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      <parameter name="wsdlServiceElement" value="DinoBrokerService"/>
+      <parameter name="schemaUnqualified" value="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      <parameter name="wsdlServicePort" value="DinoBrokerService"/>
+      <parameter name="className" value="uk.ac.ucl.cs.sse.dino.StandAloneBroker"/>
+      <parameter name="wsdlPortType" value="DinoBroker"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="startSession" qname="operNS:startSession" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" returnQName="startSessionReturn" returnType="rtns:string" xmlns:rtns="http://schemas.xmlsoap.org/soap/encoding/" soapAction="" >
+      </operation>
+      <operation name="quitSession" qname="operNS:quitSession" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </operation>
+      <operation name="registerReqDoc" qname="operNS:registerReqDoc" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="reqDocURL" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <fault name="DinoDocReadException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.doc.DinoDocReadException" type="tns:DinoDocReadException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="DinoIdException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.DinoIdException" type="tns:DinoIdException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      </operation>
+      <operation name="registerCapDoc" qname="operNS:registerCapDoc" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="capDocURL" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <fault name="DinoDocReadException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.doc.DinoDocReadException" type="tns:DinoDocReadException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="DinoIdException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.DinoIdException" type="tns:DinoIdException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      </operation>
+      <operation name="selectMode" qname="operNS:selectMode" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" returnQName="selectModeReturn" returnType="rtns:SelectModeResponse" xmlns:rtns="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="requestedModes" type="tns:ArrayOf_soapenc_string" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="DinoIdException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.DinoIdException" type="tns:DinoIdException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      </operation>
+      <operation name="invokeService" qname="operNS:invokeService" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" returnQName="invokeServiceReturn" returnType="rtns:InvocationResponse" xmlns:rtns="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="serviceName" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="params" type="tns:ArrayOfParam" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="ServiceInvocationException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.invocation.ServiceInvocationException" type="tns:ServiceInvocationException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="DinoIdException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.DinoIdException" type="tns:DinoIdException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+        <fault name="UnsupportedServiceException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.UnsupportedServiceException" type="tns:UnsupportedServiceException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      </operation>
+      <operation name="updateAttributeForInvocation" qname="operNS:updateAttributeForInvocation" xmlns:operNS="http://www.cs.ucl.ac.uk/sensoria/dino" soapAction="" >
+        <parameter qname="sessionId" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="serviceURI" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="attributeName" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <parameter qname="value" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="DinoIdException" qname="fns:fault" xmlns:fns="http://www.cs.ucl.ac.uk/sensoria/dino" class="uk.ac.ucl.cs.sse.dino.DinoIdException" type="tns:DinoIdException" xmlns:tns="http://www.cs.ucl.ac.uk/sensoria/dino"/>
+      </operation>
+      <parameter name="allowedMethods" value="quitSession startSession updateAttributeForInvocation registerReqDoc invokeService selectMode registerCapDoc"/>
+      <parameter name="scope" value="Application"/>
+
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:UnsupportedServiceException"
+        type="java:uk.ac.ucl.cs.sse.dino.UnsupportedServiceException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:InvocationResponse"
+        type="java:uk.ac.ucl.cs.sse.dino.InvocationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:DinoDocReadException"
+        type="java:uk.ac.ucl.cs.sse.dino.doc.DinoDocReadException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:DinoIdException"
+        type="java:uk.ac.ucl.cs.sse.dino.DinoIdException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:Param"
+        type="java:uk.ac.ucl.cs.sse.dino.Param"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:ArrayOfParam"
+        type="java:uk.ac.ucl.cs.sse.dino.Param[]"
+        innerType="cmp-ns:Param" xmlns:cmp-ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:SelectModeResponse"
+        type="java:uk.ac.ucl.cs.sse.dino.SelectModeResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <arrayMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:ArrayOf_soapenc_string"
+        type="java:java.lang.String[]"
+        innerType="cmp-ns:string" xmlns:cmp-ns="http://schemas.xmlsoap.org/soap/encoding/"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="http://www.cs.ucl.ac.uk/sensoria/dino"
+        qname="ns:ServiceInvocationException"
+        type="java:uk.ac.ucl.cs.sse.dino.invocation.ServiceInvocationException"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>

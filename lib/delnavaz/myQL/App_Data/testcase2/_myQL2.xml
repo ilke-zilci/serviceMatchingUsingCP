@@ -1,0 +1,56 @@
+<QoSConstraints>
+  <QoSConstraint>
+    <name>responsetime</name>
+    <values>
+      <from>120</from>
+      <to>
+      </to>
+    </values>
+    <unit>millisecond</unit>
+    <weight />
+    <type>range</type>
+    <tendency>negative</tendency>
+    <preference>1</preference>
+    <relaxation>4</relaxation>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>availability</name>
+    <values>
+      <from>80</from>
+      <to>100</to>
+    </values>
+    <unit>%</unit>
+    <weight />
+    <type>range</type>
+    <tendency>positive</tendency>
+    <preference>2</preference>
+    <relaxation>3</relaxation>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>latency</name>
+    <values>
+      <from>0</from>
+      <to>6</to>
+    </values>
+    <unit>%</unit>
+    <weight />
+    <type>range</type>
+    <tendency>negative</tendency>
+    <preference>3</preference>
+    <relaxation>2</relaxation>
+  </QoSConstraint>
+  <QoSConstraint>
+    <name>throughput</name>
+    <values>
+      <from>14</from>
+      <to>
+      </to>
+    </values>
+    <unit>%</unit>
+    <weight />
+    <type>range</type>
+    <tendency>positive</tendency>
+    <preference>4</preference>
+    <relaxation>1</relaxation>
+  </QoSConstraint>
+</QoSConstraints>

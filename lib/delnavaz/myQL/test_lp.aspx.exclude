@@ -1,0 +1,60 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="test_lp.aspx.cs" Inherits="test_lp" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <asp:TextBox ID="TextBox1" runat="server" Width="298px" Height="211px" 
+            TextMode="MultiLine"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
+    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="printed serivces : "></asp:Label>
+        <asp:TextBox ID="TextBox2" runat="server" BackColor="#FFCCFF" Height="205px" 
+            TextMode="MultiLine" Width="331px"></asp:TextBox>
+        <asp:Button ID="btnPrint" runat="server" Height="23px" onclick="btnPrint_Click" 
+            Text="print" Width="82px" />
+    
+        <asp:Button ID="btnXml" runat="server" onclick="btnXml_Click" Text="readXML" />
+    
+        <asp:Button ID="btntestAssign" runat="server" onclick="btntestAssign_Click" 
+            Text="rank" />
+    
+        <asp:Button ID="btnBrowse" runat="server" onclick="btnBrowse_Click" 
+            Text="browse" />
+    
+        <br />
+        <asp:TextBox ID="TextBox3" runat="server" BackColor="#CCFFCC" Height="179px" 
+            TextMode="MultiLine" Width="295px"></asp:TextBox>
+    
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    
+        <asp:TextBox ID="TextBox4" runat="server" BackColor="#FFFF99" Height="175px" 
+            TextMode="MultiLine" Width="274px"></asp:TextBox>
+        <asp:TextBox ID="TextBox5" runat="server" BackColor="#99CCFF" Height="175px" 
+            TextMode="MultiLine" Width="274px"></asp:TextBox>
+    
+        <asp:TextBox ID="txtResult" runat="server" BackColor="#9999FF" Height="117px" 
+            TextMode="MultiLine" Width="289px"></asp:TextBox>
+        <asp:TreeView ID="trvChildClusters" runat="server" 
+            onselectednodechanged="trvChildClusters_SelectedNodeChanged" Width="226px">
+        </asp:TreeView>
+        <asp:Label ID="lblSummary" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Label ID="lblClustersDetails" runat="server" Text="Label"></asp:Label>
+        <br />
+        <asp:Button ID="btntestCluster" runat="server" onclick="btntestCluster_Click" 
+            Text="testCluster" />
+    
+    </div>
+    </form>
+</body>
+</html>
