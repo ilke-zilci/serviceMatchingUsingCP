@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="broker" default="deploy">
+	<property name="host" value="localhost"/>
+	<property name="port" value="8080"/>
+
+	<path id="axis.classpath">
+		<fileset dir="../lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef resource="axis-tasks.properties" classpathref="axis.classpath" />
+
+	<target name="deploy">
+		<axis-admin
+			port="${port}"
+			hostname="${host}"
+			servletpath="axis/services/AdminService"
+			debug="true"
+			xmlfile="deploy.wsdd"
+			/>
+	</target>
+
+	<target name="undeploy">
+		<axis-admin
+			port="${port}"
+			hostname="${host}"
+			servletpath="axis/services/AdminService"
+			debug="true"
+			xmlfile="undeploy.wsdd"
+			/>
+	</target>
+	
+</project>
+

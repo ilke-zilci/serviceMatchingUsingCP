@@ -1,0 +1,16 @@
+1. Install IIS compatible with your windows. For instance to install IIS 7.5 in Windows 7.0 follow these steps: 
+i. From the Start menu, click Control Panel
+ii. Double-click Programs and Features.
+iii. Click Turn windows features on or off.
+iv. In the Windows Features page, check the Internet Information Services.
+v. Click OK.
+2. Install Microsoft .Net framework 2.0, or later such as Microsoft .Net framework 3.5.
+i. You can download Microsoft .Net framework 3.5 from : http://www.microsoft.com/downloads/en/details.aspx?FamilyId=333325fd-ae52-4e35-b531-508d977d32a6&displaylang=en
+3. Install Microsoft Visual Studio 2010 or 2008 and click on the myQL.sln file which is the solution file of the project
+4. Install Microsoft SQL Server 2008 and execute the create_DB.sql 
+
+Program’s Notes
+In the program the main pages are step1.aspx, step2.aspx, step3.aspx, step4.aspx, step5.aspx and result.aspx. In the App_Data folder of the project there are other subfolders such as testAmazon which contains the XML files of each offers per that keyword, in this case for amazon. The offers are named as S+number.xml. Also this subfolder includes another two files called myQL2.xml that is the user’s query and input.txt that includes the addresses of all the offers and query on your computer, for instance here an address for an offer is as follows:
+ C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testamazon\S5.xml
+
+

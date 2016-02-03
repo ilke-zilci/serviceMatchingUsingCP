@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY daml "http://www.w3.org/2002/07/owl#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+
+<rdf:RDF xmlns:rdf ="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xml:base="http://www.cs.ucl.ac.uk/research/dino/owls/geography.owl">
+
+<owl:Ontology rdf:about="">
+	<owl:versionInfo>0.1</owl:versionInfo>
+	<rdfs:comment>Ontology of georaphical concepts</rdfs:comment>
+</owl:Ontology>
+
+<owl:Class rdf:ID="LatLon">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#latitude"/>
+			<owl:allValuesFrom rdf:resource="&xsd;double"/>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#longitude"/>
+			<owl:allValuesFrom rdf:resource="&xsd;double"/>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:ID="City">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#cityName"/>
+			<owl:allValuesFrom rdf:resource="&xsd;string"/>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+<owl:DatatypeProperty rdf:ID="latitude"/>
+<owl:DatatypeProperty rdf:ID="longitude"/>
+<owl:DatatypeProperty rdf:ID="cityName"/>
+
+
+
+
+</rdf:RDF>
+

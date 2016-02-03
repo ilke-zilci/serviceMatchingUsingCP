@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project name="book-finder" default="jar">
+	<!-- This build file is intended to be included in the distribution. It will NOT work directly from the checked out source. -->
+	<!-- If using the checked out source use build.xml in the parent directory to build this project. -->
+
+	<target name="build">
+		<mkdir dir="bin"/>
+		<javac srcdir="src" destdir="bin">
+			<classpath>
+				<fileset dir="../lib"/>
+				<fileset dir="../axis"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="jar" depends="build">
+		<jar destfile="remoteBookFinder.jar">
+			<fileset dir="bin"/>
+			<manifest>
+				<attribute name="Main-Class" value="uk.ac.ucl.cs.sse.dino.client.remotebp.BookPriceFinder"/>
+				<attribute name="Class-Path" value="../axis/dino-client.jar ../lib/axis.jar ../lib/jaxrpc.jar ../lib/commons-logging.jar ../lib/commons-discovery.jar ../lib/saaj.jar ../lib/wsdl4j.jar"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+	<target name="run">
+		<java jar="remoteBookFinder.jar" fork="true"/>
+	</target>
+</project>

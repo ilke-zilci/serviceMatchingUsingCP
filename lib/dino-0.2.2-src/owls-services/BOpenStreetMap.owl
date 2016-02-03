@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE uridef [
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY service "http://www.daml.org/services/owl-s/1.1/Service.owl">
+  <!ENTITY profile "http://www.daml.org/services/owl-s/1.1/Profile.owl">
+  <!ENTITY process "http://www.daml.org/services/owl-s/1.1/Process.owl">
+  <!ENTITY grounding "http://www.daml.org/services/owl-s/1.1/Grounding.owl">
+  <!ENTITY restaurant "http://www.cs.ucl.ac.uk/research/dino/reqdoc/restaurant.owl">
+  <!ENTITY geo "http://www.cs.ucl.ac.uk/research/dino/owls/geography.owl">
+  <!ENTITY groundingWSDL "http://bozenka.cs.ucl.ac.uk:8080/axis/services/OpenStreetMap?wsdl">
+  <!ENTITY groundingNS "http://www.cs.ucl.ac.uk/research/dino/OpenStreetMap">
+  <!ENTITY mind "http://www.mindswap.org/2004/owl-s/1.1/MindswapProfileHierarchy.owl">
+  <!ENTITY retns "http://impl.osm.dino.sse.cs.ucl.ac.uk">
+  <!ENTITY zipcode "http://www.daml.org/2001/10/html/zipcode-ont">
+]>
+<rdf:RDF
+  xmlns:rdf="&rdf;#" 
+  xmlns:rdfs="&rdfs;#" 
+  xmlns:owl="&owl;#" 
+  xmlns:xsd="&xsd;#" 
+  xmlns:service="&service;#" 
+  xmlns:profile="&profile;#" 
+  xmlns:process="&process;#" 
+  xmlns:grounding="&grounding;#" 
+  xmlns:geo="&geo;#"
+  xmlns:restaurant="&restaurant;#"
+  xmlns:mind="&mind;#"
+  xml:base="http://bozenka.cs.ucl.ac.uk/dino/OpenStreetMap.owl"
+  xmlns:zipcode="&zipcode;#"
+>
+
+<owl:Ontology rdf:about="">
+	<owl:imports rdf:resource="&service;"/>
+	<owl:imports rdf:resource="&profile;"/>
+	<owl:imports rdf:resource="&process;"/>
+	<owl:imports rdf:resource="&grounding;"/>
+	<owl:imports rdf:resource="&geo;"/>
+	<owl:imports rdf:resource="&mind;"/>
+</owl:Ontology>
+
+<service:Service rdf:ID="OpenStreetMapService">
+	<service:presents rdf:resource="#OpenStreetMapProfile"/>
+
+	<service:describedBy rdf:resource="#OpenStreetMapProcess"/>
+
+	<service:supports rdf:resource="#OpenStreetMapGrounding"/>
+</service:Service>
+
+<mind:MapService rdf:ID="OpenStreetMapProfile">
+	<service:isPresentedBy rdf:resource="#OpenStreetMapService"/>
+
+	<profile:serviceName xml:lang="en">Street map service</profile:serviceName>
+	<profile:textDescription xml:lang="en">Gets a street map given a latitude and longitude.</profile:textDescription>
+
+	<profile:hasInput rdf:resource="#LatLong"/>
+	<profile:hasOutput rdf:resource="#XMLMap"/>
+</mind:MapService>
+
+<process:AtomicProcess rdf:ID="OpenStreetMapProcess">
+	<service:describes rdf:resource="#OpenStreetMapService"/>
+
+	<process:hasInput rdf:resource="#LatLong"/>
+	<process:hasOutput rdf:resource="#XMLMap"/>
+</process:AtomicProcess>
+
+<process:Input rdf:ID="LatLong">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&geo;#LatLon</process:parameterType>
+	<rdfs:label>Latitude &amp; Longitude</rdfs:label>
+</process:Input>
+
+<process:Output rdf:ID="XMLMap">
+	<process:parameterType rdf:datatype="&xsd;#anyURI">&xsd;#string</process:parameterType>
+</process:Output>
+
+<!-- Grounding description -->
+<grounding:WsdlGrounding rdf:ID="OpenStreetMapGrounding">
+	<service:supportedBy rdf:resource="#OpenStreetMapService"/>
+	<grounding:hasAtomicProcessGrounding rdf:resource="#OpenStreetMapProcessGrounding"/>
+</grounding:WsdlGrounding>
+
+<grounding:WsdlAtomicProcessGrounding rdf:ID="OpenStreetMapProcessGrounding">
+	<grounding:owlsProcess rdf:resource="#OpenStreetMapProcess"/>
+	<grounding:wsdlDocument rdf:datatype="&xsd;#anyURI">&groundingWSDL;</grounding:wsdlDocument>
+	<grounding:wsdlOperation>
+		<grounding:WsdlOperationRef>
+			<grounding:portType rdf:datatype="&xsd;#anyURI">&groundingWSDL;#OpenStreetMapInterface</grounding:portType>
+			<grounding:operation rdf:datatype="&xsd;#anyURI">&groundingWSDL;#getMap</grounding:operation>
+		</grounding:WsdlOperationRef>
+	</grounding:wsdlOperation>
+
+	<grounding:wsdlInputMessage rdf:datatype="&xsd;#anyURI">&groundingWSDL;#getMapRequest</grounding:wsdlInputMessage>
+	<grounding:wsdlInput>
+		<grounding:WsdlInputMessageMap>
+			<grounding:owlsParameter rdf:resource="#LatLong"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&groundingWSDL;#latLong</grounding:wsdlMessagePart>
+			<grounding:xsltTransformationString>
+				<![CDATA[
+				<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+					<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+					<xsl:template match="/" xmlns:ns1="http://impl.osm.dino.sse.cs.ucl.ac.uk"
+						xmlns:geo="http://www.cs.ucl.ac.uk/research/dino/owls/geography.owl#">
+						<ns1:latitude><xsl:value-of select="//geo:latitude"/></ns1:latitude>
+						<ns1:longitude><xsl:value-of select="//geo:longitude"/></ns1:longitude>
+					</xsl:template>
+				</xsl:stylesheet>
+				]]>
+			</grounding:xsltTransformationString>
+		</grounding:WsdlInputMessageMap>
+	</grounding:wsdlInput>
+
+
+	<grounding:wsdlOutputMessage rdf:datatype="&xsd;#anyURI">&groundingNS;#getMapResponse</grounding:wsdlOutputMessage>
+	<grounding:wsdlOutput>
+		<grounding:WsdlOutputMessageMap>
+			<grounding:owlsParameter rdf:resource="#XMLMap"/>
+			<grounding:wsdlMessagePart rdf:datatype="&xsd;#anyURI">&retns;#getMapReturn</grounding:wsdlMessagePart>
+		</grounding:WsdlOutputMessageMap>
+	</grounding:wsdlOutput>
+</grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>
+
+
+

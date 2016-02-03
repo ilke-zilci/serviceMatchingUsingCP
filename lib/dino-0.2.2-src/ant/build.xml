@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<project name="broker" default="build" basedir="..">
+	<!-- Import environment variables -->
+	<property environment="env"/>
+
+	<!-- Set version number -->
+	<property name="version" value="0.2.2"/>
+	
+	<!-- Set Java version to use-->
+	<property name="ant.build.javac.source" value="1.5"/>
+	<property name="ant.build.javac.target" value="1.5"/>
+
+	<!-- Declare directory paths -->
+	<property name="bookdir" location="BookPriceFinder"/>
+	<property name="remotebookdir" location="BookPriceFinderRemote"/>
+	<property name="brokerdir" location="dino-broker"/>
+	<property name="restaurantdir" location="restaurant-search-client"/>
+
+	<property name="clientdir" location="dino-client"/>
+
+	<property name="distdir" location="../dino-distribution/dino-${version}"/>
+	<property name="srcdistdir" location="../dino-distribution/dino-${version}-src"/>
+	<property name="zipdir" location="../dino-distribution"/>
+
+	<property name="cachedir" location="ontology-cache"/>
+	<property name="servicesdir" location="owls-services"/>
+
+	<property name="javadocdir" location="doc"/>
+
+	<!-- Declare class paths -->
+	<path id="broker-path">
+		<pathelement location="${brokerdir}/bin"/>
+	</path>
+
+	<path id="axis.classpath">
+		<fileset dir="${brokerdir}/lib/axis">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Define tasks -->
+	<taskdef resource="axis-tasks.properties" classpathref="axis.classpath" />
+
+	<target name="build-broker">
+		<mkdir dir="${brokerdir}/bin"/>
+		<javac srcdir="${brokerdir}/src" destdir="${brokerdir}/bin">
+			<classpath>
+				<fileset dir="${brokerdir}/lib"/>
+			</classpath>
+		</javac>
+	</target>
+
+
+	<target name="build-book-finder" depends="build-broker">
+		<mkdir dir="${bookdir}/bin"/>
+		<javac srcdir="${bookdir}/src" destdir="${bookdir}/bin">
+			<classpath refid="broker-path"/>
+			<classpath>
+				<pathelement location="${sadir}/bin"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="build-book-finder-remote" depends="generate-client">
+		<mkdir dir="${remotebookdir}/bin"/>
+		<javac srcdir="${remotebookdir}/src" destdir="${remotebookdir}/bin">
+			<classpath refid="axis.classpath"/>
+			<classpath>
+				<pathelement location="${clientdir}/bin"/>
+				<pathelement location="${brokerdir}/bin"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="build-restaurant" depends="generate-client">
+		<mkdir dir="${restaurantdir}/bin"/>
+		<javac srcdir="${restaurantdir}/src" destdir="${restaurantdir}/bin">
+			<classpath refid="broker-path"/>
+			<classpath>
+				<pathelement location="${sadir}/bin"/>
+				<pathelement location="${clientdir}/bin"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="build" depends="build-book-finder-remote, build-book-finder, build-restaurant"/>
+
+	<target name="generate-client" depends="build-broker">
+		<mkdir dir="tmp"/>
+		<echo>Building broker with debug information to temporary directory.</echo>
+		<javac srcdir="${brokerdir}/src" destdir="tmp" debug="true">
+			<classpath>
+				<fileset dir="${brokerdir}/lib"/>
+			</classpath>
+		</javac>
+
+
+		<echo>Generating WSDL</echo>
+		<axis-java2wsdl 
+			classname="uk.ac.ucl.cs.sse.dino.broker.DinoBroker"
+			implclass="uk.ac.ucl.cs.sse.dino.broker.DinoBrokerImpl"
+			location="http://localhost:8080/axis/services/DinoBrokerService"
+			namespace="http://www.cs.ucl.ac.uk/sensoria/dino"
+			output="DinoBroker.wsdl"
+			typemappingversion="1.2">
+			<classpath location="tmp"/>
+		</axis-java2wsdl>
+
+		<mkdir dir="${clientdir}/src"/>
+
+		<echo>Generating AXIS client code from WSDL</echo>
+		<axis-wsdl2java
+			output="${clientdir}/src"
+			serverside="false"
+			url="DinoBroker.wsdl">
+			<mapping namespace="http://www.cs.ucl.ac.uk/sensoria/dino"
+				package="uk.ac.ucl.cs.sse.dino.axis" />
+			<mapping namespace="http://dino.sse.cs.ucl.ac.uk"
+				package="uk.ac.ucl.cs.sse.dino.axis" />
+			<mapping namespace="http://doc.dino.sse.cs.ucl.ac.uk"
+				package="uk.ac.ucl.cs.sse.dino.axis" />
+			<mapping namespace="http://invocation.dino.sse.cs.ucl.ac.uk"
+				package="uk.ac.ucl.cs.sse.dino.axis" />
+			<mapping namespace="http://www.cs.ucl.ac.uk/sensoria/dino"
+				package="uk.ac.ucl.cs.sse.dino.axis" />
+
+		</axis-wsdl2java>
+
+		<mkdir dir="${clientdir}/bin"/>
+
+		<echo>Compiling generated code.</echo>
+		<javac srcdir="${clientdir}/src" destdir="${clientdir}/bin" classpathref="axis.classpath">
+			<classpath>
+				<pathelement location="${brokerdir}/bin"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="axis-deploy" depends="">
+		<axis-admin
+			port="8080"
+			hostname="localhost"
+			servletpath="axis/services/AdminService"
+			debug="true"
+			xmlfile="${brokerdir}/deploy.wsdd"
+			/>
+	</target>
+
+	<target name="axis-undeploy">
+		<axis-admin
+			port="8080"
+			hostname="localhost"
+			servletpath="axis/services/AdminService"
+			debug="true"
+			xmlfile="${brokerdir}/undeploy.wsdd"
+			/>
+	</target>
+
+	<target name="jar" depends="build">
+		<jar destfile="dino.jar">
+			<fileset dir="${brokerdir}/bin"/>
+			<fileset dir="${clientdir}/bin"/>
+		</jar>
+
+		<property name="axis.manifest" value="../lib/axis/axis.jar ../lib/axis/jaxrpc.jar ../lib/axis/commons-logging-1.0.4.jar ../lib/axis/commons-discovery-0.2.jar ../lib/axis/saaj.jar ../lib/axis/wsdl4j-1.5.1.jar"/>
+
+		<jar destfile="${bookdir}/bookFinder.jar">
+			<fileset dir="${bookdir}/bin"/>
+			<manifest>
+				<attribute name="Main-Class" value="uk.ac.ucl.cs.sse.dino.client.bookprice.BookPriceFinder"/>
+				<attribute name="Class-Path" value="${axis.manifest} ../lib/jena/antlr.jar ../lib/jena/arq/arq.jar ../lib/pellet/aterm-java-1.6.jar ../lib/axis/commons-httpclient-3.0-alpha1.jar ../lib/jena/concurrent.jar ../lib/dino.jar ../lib/jena/icu4j_3_4.jar ../lib/jena/jakarta-oro-2.0.8.jar ../lib/jena/jena.jar ../lib/axis/log4j-1.2.8.jar ../lib/owl-s.jar ../lib/pellet/pellet.jar ../lib/upnp.jar ../lib/axis/xercesImpl.jar ../lib/jena/xml-apis.jar"/>
+			</manifest>
+		</jar>
+
+		<jar destfile="${remotebookdir}/remoteBookFinder.jar">
+			<fileset dir="${remotebookdir}/bin"/>
+			<manifest>
+				<attribute name="Main-Class" value="uk.ac.ucl.cs.sse.dino.client.remotebp.BookPriceFinder"/>
+				<attribute name="Class-Path" value="../lib/dino.jar ${axis.manifest}"/>
+			</manifest>
+		</jar>
+		
+		<jar destfile="${restaurantdir}/restaurantSearch.jar">
+			<fileset dir="${restaurantdir}/bin"/>
+			<manifest>
+				<attribute name="Main-Class" value="uk.ac.ucl.cs.sse.dino.client.restaurant.impl.RestaurantSearchExample"/>
+				<attribute name="Class-Path" value="${axis.manifest} ../lib/jena/antlr.jar ../lib/jena/arq/arq.jar ../lib/pellet/aterm-java-1.6.jar ../lib/axis/commons-httpclient-3.0-alpha1.jar ../lib/jena/concurrent.jar ../lib/dino.jar ../lib/jena/icu4j_3_4.jar ../lib/jena/jakarta-oro-2.0.8.jar ../lib/jena/jena.jar ../lib/axis/log4j-1.2.8.jar ../lib/owl-s.jar ../lib/pellet/pellet.jar ../lib/upnp.jar ../lib/axis/xercesImpl.jar ../lib/jena/xml-apis.jar"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="javadoc" depends="build">
+		<javadoc destdir="${javadocdir}" access="public">
+			<fileset dir="${brokerdir}/src">
+			</fileset>
+			<classpath>
+				<fileset dir="${brokerdir}/lib"/>
+			</classpath>
+		</javadoc>
+	</target>
+
+	<target name="bin-dist" depends="jar, javadoc, generate-client">
+		<delete dir="${distdir}"/>
+		<copy todir="${distdir}/lib">
+			<fileset dir="${brokerdir}/lib">
+			</fileset>
+		</copy>
+		<copy file="dino.jar" todir="${distdir}/lib"/>
+
+		<copy todir="${distdir}/ontology-cache">
+			<fileset dir="${cachedir}">
+				<exclude name="**/.*"/>
+			</fileset>
+		</copy>
+		<copy todir="${distdir}/owls-services">
+			<fileset dir="${servicesdir}">
+				<exclude name="**/.*"/>
+			</fileset>
+		</copy>
+
+		<!-- Copy examples -->
+		<copy todir="${distdir}/BookPriceFinder">
+			<fileset dir="${bookdir}">
+				<include name="*"/>
+				<exclude name=".*"/>
+				<exclude name="build-dist.xml"/>
+				<include name="src/**/*.java"/>
+			</fileset>
+		</copy>
+		<copy file="${bookdir}/build-dist.xml" tofile="${distdir}/BookPriceFinder/build.xml"/>
+
+		<copy todir="${distdir}/BookPriceFinderRemote">
+			<fileset dir="${remotebookdir}">
+				<include name="*"/>
+				<exclude name=".*"/>
+				<exclude name="build-dist.xml"/>
+				<include name="src/**/*.java"/>
+			</fileset>
+		</copy>
+		<copy file="${remotebookdir}/build-dist.xml" tofile="${distdir}/BookPriceFinderRemote/build.xml"/>
+		
+		<copy todir="${distdir}/RestaurantSearch">
+			<fileset dir="${restaurantdir}">
+				<include name="*"/>
+				<exclude name=".*"/>
+				<exclude name="build-dist.xml"/>
+				<include name="src/**/*.java"/>
+			</fileset>
+		</copy>
+		<copy file="${restaurantdir}/build-dist.xml" tofile="${distdir}/RestaurantSearch/build.xml"/>
+
+
+
+		<copy file="${brokerdir}/readme-bin.html" tofile="${distdir}/readme.html">
+			<filterset>
+				<filter token="VERSION" value="${version}"/>
+			</filterset>
+		</copy>
+		<copy file="${brokerdir}/banner.jpg" todir="${distdir}"/>
+		<copy file="${brokerdir}/license.txt" todir="${distdir}"/>
+		<copy todir="${distdir}/doc">
+			<fileset dir="${javadocdir}"/>
+		</copy>
+
+		<copy todir="${distdir}/axis" file="${brokerdir}/deploy.wsdd"/>
+		<copy todir="${distdir}/axis" file="${brokerdir}/undeploy.wsdd"/>
+		<copy tofile="${distdir}/axis/build.xml" file="${brokerdir}/build-bin.xml"/>
+	</target>
+	
+	<target name="src-dist">
+		<delete dir="${srcdistdir}"/>
+
+		<copy todir="${srcdistdir}">
+			<fileset dir=".">
+				<exclude name="**/*.class"/>
+				<exclude name="repository/**"/>
+				<exclude name=".metadata/**"/>
+				<exclude name="*.jar"/>
+				<exclude name="*.wsdl"/>
+				<exclude name="/*/out/*.jar"/>
+				<exclude name="doc/**"/>
+				<exclude name="tmp/**"/>
+			</fileset>
+		</copy>
+
+		<copy file="${brokerdir}/license.txt" todir="${srcdistdir}"/>
+	</target>
+
+	<target name="zip-dist" depends="bin-dist, src-dist">
+		<zip destfile="${zipdir}/dino-${version}.zip">
+			<zipfileset dir="${distdir}" prefix="dino-${version}"/>
+		</zip>
+		<zip destfile="${zipdir}/dino-${version}-src.zip">
+			<zipfileset dir="${srcdistdir}" prefix="dino-${version}-src"/>
+		</zip>
+	</target>
+
+	<target name="clean">
+		<delete dir="${bookdir}/bin"/>
+		<delete dir="${remotebookdir}/bin"/>
+		<delete dir="${brokerdir}/bin"/>
+		<delete dir="${restaurantdir}/bin"/>
+		<delete dir="${clientdir}/bin"/>
+		<delete dir="tmp"/>
+	</target>
+
+</project>
+
