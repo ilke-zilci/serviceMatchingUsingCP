@@ -1,0 +1,321 @@
+{
+  "acl" : {
+    "owner" : {
+      "principal" : "ADMIN",
+      "type" : "ROLE"
+    },
+    "rules" : [ {
+      "principal" : "USER",
+      "type" : "ROLE",
+      "right" : "MODIFY"
+    } ]
+  },
+  "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOfferCollection",
+  "id" : "service-offer",
+  "operations" : [ {
+    "rel" : "add",
+    "href" : "service-offer"
+  } ],
+  "serviceOffers" : [ {
+    "connector" : {
+      "href" : "nuvlabox-christiane-nusslein-volhard"
+    },
+    "updated" : "2016-06-06T15:47:52.424Z",
+    "created" : "2016-06-06T15:31:48.446Z",
+    "state" : "ok",
+    "id" : "service-offer/179cc7d4-c2f1-495d-937a-38bc3de7d6ae",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:52 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-planck"
+    },
+    "updated" : "2016-06-06T15:47:45.474Z",
+    "created" : "2016-06-06T15:32:33.767Z",
+    "state" : "nok",
+    "id" : "service-offer/199c8ca3-97c3-4477-840c-8248a6772d83",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : null
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-henry-dunant"
+    },
+    "updated" : "2016-06-06T18:06:39.965Z",
+    "created" : "2016-06-06T15:35:08.460Z",
+    "state" : "ok",
+    "id" : "service-offer/3f7a8b4b-d715-4113-b182-3a0d5cff609a",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 18:06:39 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-arthur-harden"
+    },
+    "updated" : "2016-06-06T15:47:51.926Z",
+    "created" : "2016-06-06T15:22:20.107Z",
+    "state" : "ok",
+    "id" : "service-offer/f5af171b-e6c4-44a7-9224-de18a61b74a1",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:51 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-cecil-powell"
+    },
+    "updated" : "2016-06-06T15:47:47.448Z",
+    "created" : "2016-06-06T15:31:10.028Z",
+    "state" : "ok",
+    "id" : "service-offer/8a567c7a-e902-4dfe-b69a-6dd4305e384a",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:47 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-max-born"
+    },
+    "updated" : "2016-06-06T15:47:44.156Z",
+    "created" : "2016-06-06T15:32:28.749Z",
+    "state" : "nok",
+    "id" : "service-offer/fa0e8a2a-a680-451a-98a3-dff20cff5ec4",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : null
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-demo"
+    },
+    "updated" : "2016-06-06T19:31:51.236Z",
+    "created" : "2016-06-06T14:28:55.929Z",
+    "state" : "ok",
+    "id" : "service-offer/7edaa9da-dea4-4d83-9844-86805aa3f5c2",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 19:31:51 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-stanley-cohen"
+    },
+    "updated" : "2016-06-06T15:47:48.071Z",
+    "created" : "2016-06-06T15:32:47.705Z",
+    "state" : "ok",
+    "id" : "service-offer/76297725-acff-4b2f-888d-02adf28bf6cf",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:48 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-james-chadwick"
+    },
+    "updated" : "2016-06-06T15:47:49.790Z",
+    "created" : "2016-06-06T15:32:17.893Z",
+    "state" : "ok",
+    "id" : "service-offer/20b96de7-2744-418a-b5c1-6aa6b3fdd271",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:49 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-max-planck"
+    },
+    "updated" : "2016-06-06T15:47:53.506Z",
+    "created" : "2016-06-06T15:33:31.911Z",
+    "state" : "ok",
+    "id" : "service-offer/20419b94-965a-4015-bda2-4952ceb10043",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 15:47:53 UTC 2016"
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-henry-dunnant"
+    },
+    "updated" : "2016-06-06T15:47:45.604Z",
+    "created" : "2016-06-06T15:32:10.430Z",
+    "state" : "nok",
+    "id" : "service-offer/49d2fb6c-cd5a-4613-9a7c-f7aa5f75c873",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : null
+  }, {
+    "connector" : {
+      "href" : "nuvlabox-albert-einstein"
+    },
+    "updated" : "2016-06-06T22:07:16.480Z",
+    "created" : "2016-06-06T14:29:59.583Z",
+    "state" : "ok",
+    "id" : "service-offer/338ebe0b-6784-41a5-8da8-9e4ecb80b728",
+    "acl" : {
+      "owner" : {
+        "principal" : "ADMIN",
+        "type" : "ROLE"
+      },
+      "rules" : [ {
+        "principal" : "USER",
+        "right" : "VIEW",
+        "type" : "ROLE"
+      }, {
+        "principal" : "ADMIN",
+        "right" : "ALL",
+        "type" : "ROLE"
+      } ]
+    },
+    "resourceURI" : "http://sixsq.com/slipstream/1/ServiceOffer",
+    "last-online" : "Mon Jun 06 22:07:16 UTC 2016"
+  } ],
+  "count" : 12
+}

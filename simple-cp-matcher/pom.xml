@@ -116,7 +116,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<packageName>de.tub.fokus.sm.tresorsdl.model</packageName>
+					<packageName>de.tub.ilke.matcher.tresorsdl.model</packageName>
 				</configuration>
 			</plugin>
 
