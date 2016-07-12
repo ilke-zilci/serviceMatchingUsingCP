@@ -1,0 +1,919 @@
+{
+    "instances": [
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 3.75,
+                "https://olivierbelli.github.io/#vcpu": 1
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-1",
+            "https://schema.org/price": 0.05,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 7.5,
+                "https://olivierbelli.github.io/#vcpu": 2
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-2",
+            "https://schema.org/price": 0.1,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 15,
+                "https://olivierbelli.github.io/#vcpu": 4
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-4",
+            "https://schema.org/price": 0.2,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 30,
+                "https://olivierbelli.github.io/#vcpu": 8
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-8",
+            "https://schema.org/price": 0.4,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 60,
+                "https://olivierbelli.github.io/#vcpu": 16
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-16",
+            "https://schema.org/price": 0.8,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 120,
+                "https://olivierbelli.github.io/#vcpu": 32
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-standard-32",
+            "https://schema.org/price": 1.6,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 0.6,
+                "https://olivierbelli.github.io/#vcpu": 1
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "f1-micro",
+            "https://schema.org/price": 0.008,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 1.7,
+                "https://olivierbelli.github.io/#vcpu": 1
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "g1-small",
+            "https://schema.org/price": 0.027,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 13,
+                "https://olivierbelli.github.io/#vcpu": 2
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highmem-2",
+            "https://schema.org/price": 0.126,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 26,
+                "https://olivierbelli.github.io/#vcpu": 4
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highmem-4",
+            "https://schema.org/price": 0.252,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 52,
+                "https://olivierbelli.github.io/#vcpu": 8
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highmem-8",
+            "https://schema.org/price": 0.504,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 104,
+                "https://olivierbelli.github.io/#vcpu": 16
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highmem-16",
+            "https://schema.org/price": 1.008,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 208,
+                "https://olivierbelli.github.io/#vcpu": 32
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highmem-32",
+            "https://schema.org/price": 2.016,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 1.8,
+                "https://olivierbelli.github.io/#vcpu": 2
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highcpu-2",
+            "https://schema.org/price": 0.076,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 3.6,
+                "https://olivierbelli.github.io/#vcpu": 4
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highcpu-4",
+            "https://schema.org/price": 0.152,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 7.2,
+                "https://olivierbelli.github.io/#vcpu": 8
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highcpu-8",
+            "https://schema.org/price": 0.304,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 14.4,
+                "https://olivierbelli.github.io/#vcpu": 16
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highcpu-16",
+            "https://schema.org/price": 0.608,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {
+                "https://olivierbelli.github.io/#storage": 0,
+                "https://olivierbelli.github.io/#ram": 28.8,
+                "https://olivierbelli.github.io/#vcpu": 32
+            },
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.2,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.4,
+                            "q": 182.5
+                        },
+                        {
+                            "disc": 0.6,
+                            "q": 182.5
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "n1-highcpu-32",
+            "https://schema.org/price": 1.216,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [
+                {
+                    "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+                    "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+                    "https://olivierbelli.github.io/#descriptionVector": {},
+                    "https://olivierbelli.github.io/#discount": {
+                        "https://olivierbelli.github.io/#discount.method": "Progressive",
+                        "https://olivierbelli.github.io/#discount.steps": [
+                            [
+                                {
+                                    "disc": 0,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.2,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.4,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.6,
+                                    "q": 182.5
+                                }
+                            ]
+                        ]
+                    },
+                    "https://olivierbelli.github.io/#freeQuantity": 0,
+                    "https://schema.org/name": "gce.dynamic.vcpu",
+                    "https://schema.org/price": 0.03492,
+                    "https://schema.org/priceCurrency": "USD",
+                    "https://olivierbelli.github.io/#resourceType": "vcpu",
+                    "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+                    "https://schema.org/unitCode": "C62"
+                },
+                {
+                    "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+                    "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+                    "https://olivierbelli.github.io/#descriptionVector": {},
+                    "https://olivierbelli.github.io/#discount": {
+                        "https://olivierbelli.github.io/#discount.method": "Progressive",
+                        "https://olivierbelli.github.io/#discount.steps": [
+                            [
+                                {
+                                    "disc": 0,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.2,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.4,
+                                    "q": 182.5
+                                },
+                                {
+                                    "disc": 0.6,
+                                    "q": 182.5
+                                }
+                            ]
+                        ]
+                    },
+                    "https://olivierbelli.github.io/#freeQuantity": 0,
+                    "https://schema.org/name": "gce.dynamic.ram",
+                    "https://schema.org/price": 0.00468,
+                    "https://schema.org/priceCurrency": "USD",
+                    "https://olivierbelli.github.io/#resourceType": "ram",
+                    "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+                    "https://schema.org/unitCode": "C62"
+                }
+            ],
+            "https://olivierbelli.github.io/#billingTimeCode": "HUR",
+            "https://olivierbelli.github.io/#descriptionVector": {},
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "None",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    []
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "gce.dynamic.instance",
+            "https://schema.org/price": 0,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "vm",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MIN",
+            "https://schema.org/unitCode": "C62"
+        }
+    ],
+    "disks": [
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "MON",
+            "https://olivierbelli.github.io/#descriptionVector": {},
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "None",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    []
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "disk",
+            "https://schema.org/price": 0.17,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "disk",
+            "https://olivierbelli.github.io/#sampleTimeCode": "HUR",
+            "https://schema.org/unitCode": "GBM"
+        }
+    ],
+    "networking": [
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "MON",
+            "https://olivierbelli.github.io/#descriptionVector": {},
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "None",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    []
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "network_in",
+            "https://schema.org/price": 0,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "network_in",
+            "https://olivierbelli.github.io/#sampleTimeCode": "HUR",
+            "https://schema.org/unitCode": "GBM"
+        },
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+            "https://olivierbelli.github.io/#billingTimeCode": "MON",
+            "https://olivierbelli.github.io/#descriptionVector": {},
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "Progressive",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    [
+                        {
+                            "disc": 0.08333333333333333,
+                            "q": 1024
+                        },
+                        {
+                            "disc": 0.3333333333333333,
+                            "q": 9216
+                        }
+                    ]
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "network_out",
+            "https://schema.org/price": 0.12,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "network_out",
+            "https://olivierbelli.github.io/#sampleTimeCode": "HUR",
+            "https://schema.org/unitCode": "GBM"
+        }
+    ],
+    "objectstorage": [
+        {
+            "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [
+                {
+                    "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+                    "https://olivierbelli.github.io/#billingTimeCode": "MON",
+                    "https://olivierbelli.github.io/#descriptionVector": {},
+                    "https://olivierbelli.github.io/#discount": {
+                        "https://olivierbelli.github.io/#discount.method": "None",
+                        "https://olivierbelli.github.io/#discount.steps": [
+                            []
+                        ]
+                    },
+                    "https://olivierbelli.github.io/#freeQuantity": 0,
+                    "https://schema.org/name": "objectstorage.requests.typeA",
+                    "https://schema.org/price": 0.00001,
+                    "https://schema.org/priceCurrency": "USD",
+                    "https://olivierbelli.github.io/#resourceType": "request",
+                    "https://olivierbelli.github.io/#sampleTimeCode": "MON",
+                    "https://schema.org/unitCode": "C62"
+                },
+                {
+                    "https://github.com/SixSq/pricing-tool/blob/master/Schema.md": [],
+                    "https://olivierbelli.github.io/#billingTimeCode": "MON",
+                    "https://olivierbelli.github.io/#descriptionVector": {},
+                    "https://olivierbelli.github.io/#discount": {
+                        "https://olivierbelli.github.io/#discount.method": "None",
+                        "https://olivierbelli.github.io/#discount.steps": [
+                            []
+                        ]
+                    },
+                    "https://olivierbelli.github.io/#freeQuantity": 0,
+                    "https://schema.org/name": "objectstorage.requests.typeB",
+                    "https://schema.org/price": 0.000001,
+                    "https://schema.org/priceCurrency": "USD",
+                    "https://olivierbelli.github.io/#resourceType": "request",
+                    "https://olivierbelli.github.io/#sampleTimeCode": "MON",
+                    "https://schema.org/unitCode": "C62"
+                }
+            ],
+            "https://olivierbelli.github.io/#billingTimeCode": "MON",
+            "https://olivierbelli.github.io/#descriptionVector": {},
+            "https://olivierbelli.github.io/#discount": {
+                "https://olivierbelli.github.io/#discount.method": "None",
+                "https://olivierbelli.github.io/#discount.steps": [
+                    []
+                ]
+            },
+            "https://olivierbelli.github.io/#freeQuantity": 0,
+            "https://schema.org/name": "objectstorage",
+            "https://schema.org/price": 0.026,
+            "https://schema.org/priceCurrency": "USD",
+            "https://olivierbelli.github.io/#resourceType": "objectstorage",
+            "https://olivierbelli.github.io/#sampleTimeCode": "MON",
+            "https://schema.org/unitCode": "GBM"
+        }
+    ]
+}
