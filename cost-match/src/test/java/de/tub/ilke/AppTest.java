@@ -9,6 +9,8 @@ import org.chocosolver.solver.constraints.SatFactory;
 import org.chocosolver.solver.constraints.nary.cnf.LogOp;
 import org.chocosolver.solver.constraints.real.Ibex;
 import org.chocosolver.solver.constraints.real.RealConstraint;
+import org.chocosolver.solver.search.loop.monitors.IMonitorSolution;
+import org.chocosolver.solver.search.loop.monitors.ISearchMonitor;
 import org.chocosolver.solver.search.solution.Solution;
 import org.chocosolver.solver.search.strategy.IntStrategyFactory;
 import org.chocosolver.solver.trace.Chatterbox;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import java.util.List;
+
+import static org.chocosolver.solver.constraints.real.Ibex.COMPO;
 
 /**
  * Unit test for simple App.
@@ -45,14 +49,69 @@ public class AppTest
         // 3. Create and post constraints by using constraint factories
         solver.post(IntConstraintFactory.arithm(x, "+", y, "<", 5));
         // 4. Define the search strategy
-        solver.set(IntStrategyFactory.lexico_LB(x, y));
+        //solver.set(IntStrategyFactory.lexico_LB(x, y));
         // 5. Launch the resolution process
-        solver.findAllSolutions();
+        //solver.findAllSolutions();
 
         //6. Print search statistics
-        Chatterbox.printSolutions(solver);
-        Chatterbox.printStatistics(solver);
+        Chatterbox.showSolutions(solver);
+        //Chatterbox.printSolutions(solver);
+        //Chatterbox.printStatistics(solver);
 
+    }
+
+    @Test
+    public void it_should_find_and_log_solutions_with_chatterbox(){
+
+        Solver solver = new Solver("my first problem");
+        // 2. Create variables through the variable factory
+        IntVar x = VariableFactory.bounded("X", 0, 5, solver);
+        IntVar y = VariableFactory.bounded("Y", 0, 5, solver);
+        // 3. Create and post constraints by using constraint factories
+        solver.post(IntConstraintFactory.arithm(x, "+", y, "<", 5));
+        // 4. Define the search strategy
+        //solver.set(IntStrategyFactory.lexico_LB(x, y));
+        // 5. Launch the resolution process
+        solver.findAllSolutions();
+        //6. Print search statistics
+        // Chatterbox.showSolutions(solver);
+        Chatterbox.printSolutions(solver);
+    }
+
+
+    @Test
+    public void it_should_find_and_log_solutions_with_monitor(){
+
+        Solver solver = new Solver("my first problem");
+        // 2. Create variables through the variable factory
+        IntVar x = VariableFactory.bounded("X", 0, 5, solver);
+        IntVar y = VariableFactory.bounded("Y", 0, 5, solver);
+        IntVar[] vars = new IntVar[]{x, y};
+
+        // 3. Create and post constraints by using constraint factories
+        solver.post(IntConstraintFactory.arithm(x, "+", y, "<", 5));
+
+    }
+
+        //method matching lambda expression takes no parameters, like this:
+        //() -> System.out.println("Zero parameter lambda");
+
+    public void findAndLogSolutions(Solver solver,IntVar[] vars) {
+        solver.plugMonitor((IMonitorSolution) () -> {
+         logSolutions(vars);
+        });
+        solver.findAllSolutions();
+        }
+
+    private String logSolutions(IntVar[] vars) {
+        StringBuilder st = new StringBuilder();
+        st.append("\t");
+        for (int i = 0; i < vars.length; i++) {
+            st.append(String.format("%s : [%d, %d]\n\t", vars[i].getName(), vars[i].getLB(), vars[i].getUB()));
+        }
+        System.out.println("SimpleInteger");
+        System.out.println(st.toString());
+        return st.toString();
     }
 
     @org.junit.Test
@@ -164,18 +223,45 @@ public class AppTest
 
     @Test
     public void it_should_solve_realConstraint_Externally_with_Ibex(){
-
+        RealVar[] vars;
+        RealVar x, y, z;
         Solver solver = new Solver();
-        double PREC = 0.01d; // precision
-        RealVar x = VariableFactory.real("x", -1.0d, 1.0d, PREC, solver);
-        RealVar y = VariableFactory.real("y", -1.0d, 1.0d, PREC, solver);
-        RealConstraint rc = new RealConstraint(
-                "my fct",
-                "{0}*{1}=1.0",
-                Ibex.HC4,
-                x, y);
-        solver.post(rc);
-        Chatterbox.showSolutions(solver);
+        double precision = 1.0e-6;
+        x = VariableFactory.real("x", Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, precision, solver);
+        y = VariableFactory.real("y", -1.0e8, 1.0e8, precision, solver);
+        z = VariableFactory.real("z", -1.0e8, 1.0e8, precision, solver);
+
+        vars = new RealVar[]{x, y, z};
+        solver.post(new RealConstraint("RealConstraint",
+        /*rcons.addFunction("{1}^2 * (1 + {2}^2) + {2} * ({2} - 24 * {1}) = -13", vars, Ibex.COMPO);
+        rcons.addFunction("{0}^2 * (1 + {1}^2) + {1} * ({1} - 24 * {0}) = -13", vars, Ibex.COMPO);
+        rcons.addFunction("{2}^2 * (1 + {0}^2) + {0} * ({0} - 24 * {2}) = -13", vars);*/
+                        "{1}^2 * (1 + {2}^2) + {2} * ({2} - 24 * {1}) = -13;" +
+                                "{0}^2 * (1 + {1}^2) + {1} * ({1} - 24 * {0}) = -13;" +
+                                "{2}^2 * (1 + {0}^2) + {0} * ({0} - 24 * {2}) = -13",
+                        Ibex.HC4_NEWTON, vars)
+        );
+
+        solver.plugMonitor((IMonitorSolution) () -> {
+            StringBuilder st = new StringBuilder();
+            st.append("\t");
+            for (int i = 0; i < vars.length; i++) {
+                st.append(String.format("%s : [%f, %f]\n\t", vars[i].getName(), vars[i].getLB(), vars[i].getUB()));
+            }
+            System.out.println("CycloHexan");
+            System.out.println(st.toString());
+        });
+        solver.findAllSolutions();
+        solver.getIbex().release();
+       // Chatterbox.showSolutions(solver);
+
+    }
+
+    @Test
+    public void it_should_load_Ibex(){
+        Ibex ibex = new Ibex();
+        ibex.add_contractor(2,"{0}={1}",COMPO);
+
 
     }
 

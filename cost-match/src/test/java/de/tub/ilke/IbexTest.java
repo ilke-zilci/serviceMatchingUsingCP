@@ -13,7 +13,7 @@ public class IbexTest {
 
         Ibex ibex=new Ibex();
         //ibex.add_contractor(2,"{0}-{1}=0");
-    //    ibex.add_ctr(2,"{0}-{1}=0");
+        //ibex.add_ctr(2,"{0}-{1}=0");
 
 
         double domains[]={1.5,10.5,5.5,12.0};
