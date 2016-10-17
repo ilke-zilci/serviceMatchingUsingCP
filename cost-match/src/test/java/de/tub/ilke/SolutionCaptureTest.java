@@ -12,6 +12,8 @@ import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.solver.variables.VariableFactory;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +105,22 @@ public class SolutionCaptureTest {
 
     @Test
     public void it_should_redirect_solution_stream_to_file() {
+        // this might have thread issues.
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream customPrintStream = new PrintStream(baos);
+        PrintStream defaultOutStream = System.out;
+        System.setOut(customPrintStream);
+        // Print some output: goes to your special stream
+        Solver solver = getSolverWithXY5Problem();
+        Chatterbox.showSolutions(solver);
+        solver.findAllSolutions();
+
+        // Put things back
+        System.out.flush();
+        System.setOut(defaultOutStream);
+        // Show what happened
+        System.out.println("Here are the captured results as string: \n" + baos.toString());
 
     }
 
