@@ -12,6 +12,7 @@ import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.solver.variables.VariableFactory;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -86,21 +87,23 @@ public class SolutionCaptureTest {
         return st.toString();
     }
 
-    // When i add an object to a list, does it just add a ref and if the internal state of the obj changes it will change or does it copy the object state to the list?
     @Test
     public void it_should_capture_output_into_solution_objects() {
+        CloudProperty cloudProperty = new CloudProperty();
         Solver solver = getSolverWithXY5Problem();
         solver.findSolution();
         while (solver.nextSolution()) {
             Variable[] vars = solver.getVars();
+
             for (Variable v : vars) {
-                CloudProperty cloudProperty = new CloudProperty();
-                cloudProperty.setName(v.getName());
-                //cloudProperty.setValue(v.);
+                IntVar intVar = (IntVar)v;
+                cloudProperty.name = v.getName();
+                cloudProperty.value = intVar.getValue();
 
             }
         }
-
+        assertEquals("Y", cloudProperty.name);
+        assertEquals(2, cloudProperty.value);
     }
 
     @Test
