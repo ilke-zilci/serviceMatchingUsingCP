@@ -1,9 +1,0 @@
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\myQL2.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S1.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S2.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S3.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S4.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S5.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S6.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S7.xml
-C:\Users\delnavaz\Documents\Visual Studio 2008\WebSites\myQL\App_Data\testflight\S8.xml

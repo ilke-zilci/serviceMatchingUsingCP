@@ -1,4 +1,0 @@
-<undeployment name="dino-broker" xmlns="http://xml.apache.org/axis/wsdd/">
-  <service name="DinoBrokerService"/>
-</undeployment>
-
